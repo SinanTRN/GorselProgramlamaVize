@@ -28,12 +28,121 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            menuStrip1 = new MenuStrip();
+            üyeEkleToolStripMenuItem = new ToolStripMenuItem();
+            kitapEkleToolStripMenuItem = new ToolStripMenuItem();
+            kitapEkleToolStripMenuItem1 = new ToolStripMenuItem();
+            kitapGüncelleSilToolStripMenuItem = new ToolStripMenuItem();
+            emanetİşlemleriToolStripMenuItem = new ToolStripMenuItem();
+            dgvEmanetler = new DataGridView();
+            btnAraMain = new Button();
+            txtAraMain = new TextBox();
+            menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEmanetler).BeginInit();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { üyeEkleToolStripMenuItem, kitapEkleToolStripMenuItem, emanetİşlemleriToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // üyeEkleToolStripMenuItem
+            // 
+            üyeEkleToolStripMenuItem.Name = "üyeEkleToolStripMenuItem";
+            üyeEkleToolStripMenuItem.Size = new Size(86, 20);
+            üyeEkleToolStripMenuItem.Text = "Üye İşlemleri";
+            üyeEkleToolStripMenuItem.Click += üyeEkleToolStripMenuItem_Click;
+            // 
+            // kitapEkleToolStripMenuItem
+            // 
+            kitapEkleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kitapEkleToolStripMenuItem1, kitapGüncelleSilToolStripMenuItem });
+            kitapEkleToolStripMenuItem.Name = "kitapEkleToolStripMenuItem";
+            kitapEkleToolStripMenuItem.Size = new Size(93, 20);
+            kitapEkleToolStripMenuItem.Text = "Kitap İşlemleri";
+            // 
+            // kitapEkleToolStripMenuItem1
+            // 
+            kitapEkleToolStripMenuItem1.Name = "kitapEkleToolStripMenuItem1";
+            kitapEkleToolStripMenuItem1.Size = new Size(173, 22);
+            kitapEkleToolStripMenuItem1.Text = "Kitap Ekle";
+            kitapEkleToolStripMenuItem1.Click += kitapEkleToolStripMenuItem1_Click;
+            // 
+            // kitapGüncelleSilToolStripMenuItem
+            // 
+            kitapGüncelleSilToolStripMenuItem.Name = "kitapGüncelleSilToolStripMenuItem";
+            kitapGüncelleSilToolStripMenuItem.Size = new Size(173, 22);
+            kitapGüncelleSilToolStripMenuItem.Text = "Kitap Güncelle / Sil";
+            kitapGüncelleSilToolStripMenuItem.Click += kitapGüncelleSilToolStripMenuItem_Click;
+            // 
+            // emanetİşlemleriToolStripMenuItem
+            // 
+            emanetİşlemleriToolStripMenuItem.Name = "emanetİşlemleriToolStripMenuItem";
+            emanetİşlemleriToolStripMenuItem.Size = new Size(106, 20);
+            emanetİşlemleriToolStripMenuItem.Text = "Emanet İşlemleri";
+            emanetİşlemleriToolStripMenuItem.Click += emanetİşlemleriToolStripMenuItem_Click;
+            // 
+            // dgvEmanetler
+            // 
+            dgvEmanetler.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dgvEmanetler.BackgroundColor = SystemColors.InactiveCaption;
+            dgvEmanetler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEmanetler.Location = new Point(12, 77);
+            dgvEmanetler.Name = "dgvEmanetler";
+            dgvEmanetler.Size = new Size(776, 361);
+            dgvEmanetler.TabIndex = 1;
+            // 
+            // btnAraMain
+            // 
+            btnAraMain.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAraMain.Location = new Point(697, 48);
+            btnAraMain.Name = "btnAraMain";
+            btnAraMain.Size = new Size(91, 23);
+            btnAraMain.TabIndex = 2;
+            btnAraMain.Text = "Ara";
+            btnAraMain.UseVisualStyleBackColor = true;
+            btnAraMain.Click += btnAra_Click;
+            // 
+            // txtAraMain
+            // 
+            txtAraMain.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtAraMain.Location = new Point(428, 48);
+            txtAraMain.Name = "txtAraMain";
+            txtAraMain.Size = new Size(263, 23);
+            txtAraMain.TabIndex = 3;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(txtAraMain);
+            Controls.Add(btnAraMain);
+            Controls.Add(dgvEmanetler);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "Form1";
+            Text = "Main";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEmanetler).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem üyeEkleToolStripMenuItem;
+        private ToolStripMenuItem kitapEkleToolStripMenuItem;
+        private ToolStripMenuItem emanetİşlemleriToolStripMenuItem;
+        private ToolStripMenuItem kitapEkleToolStripMenuItem1;
+        private ToolStripMenuItem kitapGüncelleSilToolStripMenuItem;
+        private DataGridView dgvEmanetler;
+        private Button btnAraMain;
+        private TextBox txtAraMain;
     }
 }
