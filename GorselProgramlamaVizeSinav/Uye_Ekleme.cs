@@ -12,9 +12,17 @@ namespace GorselProgramlamaVizeSinav
 {
     public partial class Uye_Ekleme : Form
     {
+        DataTable dt;
         public Uye_Ekleme()
         {
             InitializeComponent();
+            dt=new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("İsim");
+            dt.Columns.Add("Soyisim");
+            dt.Columns.Add("E Posta");
+            dt.Columns.Add("Telefon");
+
         }
 
         private void dgvUyeler_CellContentClick(object sender, DataGridViewCellEventArgs e)
