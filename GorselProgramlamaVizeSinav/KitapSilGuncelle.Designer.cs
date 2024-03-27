@@ -66,6 +66,7 @@
             btnSilKitap.TabIndex = 8;
             btnSilKitap.Text = "Sil";
             btnSilKitap.UseVisualStyleBackColor = false;
+            btnSilKitap.Click += btnSilKitap_Click;
             // 
             // btnGuncelleKitap
             // 

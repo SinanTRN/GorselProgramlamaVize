@@ -228,6 +228,7 @@
             btnEkle.TabIndex = 8;
             btnEkle.Text = "Ekle";
             btnEkle.UseVisualStyleBackColor = false;
+            btnEkle.Click += btnEkle_Click;
             // 
             // Kitap_Ekleme
             // 
