@@ -94,9 +94,9 @@
             t.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
             t.Location = new Point(6, 67);
             t.Name = "t";
-            t.Size = new Size(45, 17);
+            t.Size = new Size(20, 17);
             t.TabIndex = 0;
-            t.Text = "Parola";
+            t.Text = "ID";
             // 
             // txtIsimOdunc
             // 

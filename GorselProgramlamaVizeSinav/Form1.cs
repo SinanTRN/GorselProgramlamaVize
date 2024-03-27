@@ -1,10 +1,22 @@
+using System.Data;
+
 namespace GorselProgramlamaVizeSinav
 {
     public partial class Form1 : Form
     {
+        DataTable dtEmanet;
         public Form1()
         {
             InitializeComponent();
+            dtEmanet = new DataTable();
+            dtEmanet.Columns.Add("Emanent ID");
+            dtEmanet.Columns.Add("Üye ID");
+            dtEmanet.Columns.Add("isim");
+            dtEmanet.Columns.Add("Soyisim");
+            dtEmanet.Columns.Add("Baþlýk");
+            dtEmanet.Columns.Add("Yazar");
+            dtEmanet.Columns.Add("Alýndýðý Tarih");
+            dtEmanet.Columns.Add("Teslim Tarihi");
         }
 
         private void üyeEkleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,7 +46,6 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnAra_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
