@@ -29,7 +29,7 @@ namespace GorselProgramlamaVizeSinav
 
         public void tabloyaEkle(DataTable tablo)
         {
-                tablo.Rows.Add(new object[] { _id, _isim, _soyisim, _email, _telefon });
+                tablo.Rows.Add(new object[] { ID, _isim, _soyisim, _email, _telefon });
         }
 
     }

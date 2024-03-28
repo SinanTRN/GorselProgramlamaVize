@@ -13,6 +13,7 @@ namespace GorselProgramlamaVizeSinav
     public partial class Uye_Ekleme : Form
     {
         public DataTable dtUyeler;
+        Uye uye;
         public Uye_Ekleme()
         {
             InitializeComponent();
@@ -23,6 +24,8 @@ namespace GorselProgramlamaVizeSinav
             dtUyeler.Columns.Add("E Posta");
             dtUyeler.Columns.Add("Telefon");
 
+            dgvUyeler.DataSource = dtUyeler;
+
         }
 
         private void dgvUyeler_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -32,6 +35,16 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
+            uye=new Uye();
+            uye.Isim=txtIsim.Text;
+            uye.Soyisim=txtSoyisim.Text;
+            uye.Telefon=txtTelefon.Text;
+            uye.Eposta=txtMail.Text;
+
+            uye.tabloyaEkle(dtUyeler);
+            Uye.uyeler.Add(uye);
+            
+            dgvUyeler.DataSource = dtUyeler;
 
         }
     }
