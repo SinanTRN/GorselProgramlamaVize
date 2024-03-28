@@ -144,12 +144,12 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox txtEmanetYazar;
         private Label label2;
-        private TextBox txtEmanetBaslik;
         private Label label1;
         private Button btnSureUzat;
         private Button btnOduncAl;
         private Button btnIade;
+        public TextBox txtEmanetYazar;
+        public TextBox txtEmanetBaslik;
     }
 }

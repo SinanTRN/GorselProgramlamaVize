@@ -31,7 +31,7 @@
             groupBox1 = new GroupBox();
             txtSoyisimOdunc = new TextBox();
             label2 = new Label();
-            txtParolaOdunc = new TextBox();
+            txtIdOdunc = new TextBox();
             t = new Label();
             txtIsimOdunc = new TextBox();
             label1 = new Label();
@@ -41,6 +41,7 @@
             label4 = new Label();
             label3 = new Label();
             dtpTeslimTarihiOdunc = new DateTimePicker();
+            btnKaydetEmanet = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,12 +50,12 @@
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(txtSoyisimOdunc);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(txtParolaOdunc);
+            groupBox1.Controls.Add(txtIdOdunc);
             groupBox1.Controls.Add(t);
             groupBox1.Controls.Add(txtIsimOdunc);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            groupBox1.Location = new Point(45, 38);
+            groupBox1.Location = new Point(45, 65);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(530, 103);
             groupBox1.TabIndex = 1;
@@ -80,13 +81,13 @@
             label2.TabIndex = 0;
             label2.Text = "Soyisim";
             // 
-            // txtParolaOdunc
+            // txtIdOdunc
             // 
-            txtParolaOdunc.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtParolaOdunc.Location = new Point(77, 61);
-            txtParolaOdunc.Name = "txtParolaOdunc";
-            txtParolaOdunc.Size = new Size(243, 29);
-            txtParolaOdunc.TabIndex = 3;
+            txtIdOdunc.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtIdOdunc.Location = new Point(77, 61);
+            txtIdOdunc.Name = "txtIdOdunc";
+            txtIdOdunc.Size = new Size(243, 29);
+            txtIdOdunc.TabIndex = 3;
             // 
             // t
             // 
@@ -121,19 +122,20 @@
             btnOkOdunc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnOkOdunc.BackColor = Color.Lime;
             btnOkOdunc.ForeColor = Color.White;
-            btnOkOdunc.Location = new Point(489, 188);
+            btnOkOdunc.Location = new Point(489, 227);
             btnOkOdunc.Name = "btnOkOdunc";
             btnOkOdunc.Size = new Size(86, 23);
             btnOkOdunc.TabIndex = 6;
             btnOkOdunc.Text = "Tamam";
             btnOkOdunc.UseVisualStyleBackColor = false;
+            btnOkOdunc.Click += btnOkOdunc_Click;
             // 
             // btnIptalOdunc
             // 
             btnIptalOdunc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnIptalOdunc.BackColor = Color.FromArgb(192, 0, 0);
             btnIptalOdunc.ForeColor = Color.White;
-            btnIptalOdunc.Location = new Point(388, 188);
+            btnIptalOdunc.Location = new Point(388, 227);
             btnIptalOdunc.Name = "btnIptalOdunc";
             btnIptalOdunc.Size = new Size(95, 23);
             btnIptalOdunc.TabIndex = 5;
@@ -143,16 +145,17 @@
             // txtSureOdunc
             // 
             txtSureOdunc.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtSureOdunc.Location = new Point(146, 143);
+            txtSureOdunc.Location = new Point(146, 174);
             txtSureOdunc.Name = "txtSureOdunc";
             txtSureOdunc.Size = new Size(200, 23);
             txtSureOdunc.TabIndex = 8;
+            txtSureOdunc.TextChanged += txtSureOdunc_TextChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label4.Location = new Point(51, 144);
+            label4.Location = new Point(51, 175);
             label4.Name = "label4";
             label4.Size = new Size(65, 17);
             label4.TabIndex = 7;
@@ -162,7 +165,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label3.Location = new Point(51, 172);
+            label3.Location = new Point(51, 203);
             label3.Name = "label3";
             label3.Size = new Size(79, 17);
             label3.TabIndex = 0;
@@ -170,16 +173,27 @@
             // 
             // dtpTeslimTarihiOdunc
             // 
-            dtpTeslimTarihiOdunc.Location = new Point(146, 172);
+            dtpTeslimTarihiOdunc.Location = new Point(146, 203);
             dtpTeslimTarihiOdunc.Name = "dtpTeslimTarihiOdunc";
             dtpTeslimTarihiOdunc.Size = new Size(200, 23);
             dtpTeslimTarihiOdunc.TabIndex = 9;
+            // 
+            // btnKaydetEmanet
+            // 
+            btnKaydetEmanet.Location = new Point(455, 29);
+            btnKaydetEmanet.Name = "btnKaydetEmanet";
+            btnKaydetEmanet.Size = new Size(120, 23);
+            btnKaydetEmanet.TabIndex = 10;
+            btnKaydetEmanet.Text = "Dosyaya Kaydet";
+            btnKaydetEmanet.UseVisualStyleBackColor = true;
+            btnKaydetEmanet.Click += btnKaydetEmanet_Click;
             // 
             // OduncAl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(602, 229);
+            ClientSize = new Size(602, 262);
+            Controls.Add(btnKaydetEmanet);
             Controls.Add(dtpTeslimTarihiOdunc);
             Controls.Add(label3);
             Controls.Add(txtSureOdunc);
@@ -189,6 +203,7 @@
             Controls.Add(groupBox1);
             Name = "OduncAl";
             Text = "OduncAl";
+            Load += OduncAl_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -198,17 +213,18 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox txtSoyisimOdunc;
         private Label label2;
-        private TextBox txtIsimOdunc;
         private Label label1;
-        private TextBox txtParolaOdunc;
         private Label t;
         private Button btnOkOdunc;
         private Button btnIptalOdunc;
-        private TextBox txtSureOdunc;
         private Label label4;
         private Label label3;
-        private DateTimePicker dtpTeslimTarihiOdunc;
+        public TextBox txtSoyisimOdunc;
+        public TextBox txtIdOdunc;
+        public TextBox txtSureOdunc;
+        public DateTimePicker dtpTeslimTarihiOdunc;
+        public TextBox txtIsimOdunc;
+        private Button btnKaydetEmanet;
     }
 }

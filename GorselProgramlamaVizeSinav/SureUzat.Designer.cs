@@ -118,6 +118,6 @@
         private Button btnOkSure;
         private Button btnIptalSure;
         private Label label2;
-        private DateTimePicker dtpTeslimTarihiSure;
+        public DateTimePicker dtpTeslimTarihiSure;
     }
 }

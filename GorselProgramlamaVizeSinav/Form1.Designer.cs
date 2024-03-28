@@ -37,13 +37,16 @@
             dgvEmanetler = new DataGridView();
             btnAraMain = new Button();
             txtAraMain = new TextBox();
+            dosyaToolStripMenuItem = new ToolStripMenuItem();
+            kaydetTsm = new ToolStripMenuItem();
+            yükleTsm = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmanetler).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { üyeEkleToolStripMenuItem, kitapEkleToolStripMenuItem, emanetİşlemleriToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { üyeEkleToolStripMenuItem, kitapEkleToolStripMenuItem, emanetİşlemleriToolStripMenuItem, dosyaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -114,6 +117,25 @@
             txtAraMain.Size = new Size(263, 23);
             txtAraMain.TabIndex = 3;
             // 
+            // dosyaToolStripMenuItem
+            // 
+            dosyaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kaydetTsm, yükleTsm });
+            dosyaToolStripMenuItem.Name = "dosyaToolStripMenuItem";
+            dosyaToolStripMenuItem.Size = new Size(51, 20);
+            dosyaToolStripMenuItem.Text = "Dosya";
+            // 
+            // kaydetTsm
+            // 
+            kaydetTsm.Name = "kaydetTsm";
+            kaydetTsm.Size = new Size(180, 22);
+            kaydetTsm.Text = "Kaydet";
+            // 
+            // yükleTsm
+            // 
+            yükleTsm.Name = "yükleTsm";
+            yükleTsm.Size = new Size(180, 22);
+            yükleTsm.Text = "Yükle";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -144,5 +166,8 @@
         private DataGridView dgvEmanetler;
         private Button btnAraMain;
         private TextBox txtAraMain;
+        private ToolStripMenuItem dosyaToolStripMenuItem;
+        private ToolStripMenuItem kaydetTsm;
+        private ToolStripMenuItem yükleTsm;
     }
 }

@@ -12,6 +12,8 @@ namespace GorselProgramlamaVizeSinav
 {
     public partial class Emanet_Islemleri : Form
     {
+        
+        Emanet emanet = new Emanet();
         public Emanet_Islemleri()
         {
             InitializeComponent();
@@ -19,7 +21,8 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnOduncAl_Click(object sender, EventArgs e)
         {
-            OduncAl nesne = new OduncAl();
+            
+            OduncAl nesne = new OduncAl(txtEmanetBaslik.Text,txtEmanetYazar.Text);
             nesne.ShowDialog();
         }
 

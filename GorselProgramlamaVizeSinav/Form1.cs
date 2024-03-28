@@ -5,9 +5,12 @@ namespace GorselProgramlamaVizeSinav
     public partial class Form1 : Form
     {
         DataTable dtEmanet;
+        private List<Emanet> emanetler;
+
         public Form1()
         {
             InitializeComponent();
+            
             dtEmanet = new DataTable();
             dtEmanet.Columns.Add("Emanent ID");
             dtEmanet.Columns.Add("Üye ID");
@@ -17,6 +20,8 @@ namespace GorselProgramlamaVizeSinav
             dtEmanet.Columns.Add("Yazar");
             dtEmanet.Columns.Add("Alýndýðý Tarih");
             dtEmanet.Columns.Add("Teslim Tarihi");
+
+            dgvEmanetler.DataSource = dtEmanet;
         }
 
         private void üyeEkleToolStripMenuItem_Click(object sender, EventArgs e)

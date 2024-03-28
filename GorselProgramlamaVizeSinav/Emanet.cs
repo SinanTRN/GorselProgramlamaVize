@@ -9,6 +9,8 @@ namespace GorselProgramlamaVizeSinav
 {
     public class Emanet
     {
+        public static List<Emanet> emanetler=new List<Emanet>();
+
         private string? _kitapBaslik;
         private string? _kitapYazar;
         private string? _uyeIsmi;
@@ -36,6 +38,7 @@ namespace GorselProgramlamaVizeSinav
             tablo.Rows.Add(new object[] { _emanetId, _uyeId,_uyeIsmi, _uyeSoyismi, _kitapBaslik, _kitapYazar, _aldigiTarih, _teslimTarihi });
 
         }
+        
 
     }
 }
