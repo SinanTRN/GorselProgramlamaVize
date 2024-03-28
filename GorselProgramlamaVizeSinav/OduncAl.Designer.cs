@@ -41,7 +41,6 @@
             label4 = new Label();
             label3 = new Label();
             dtpTeslimTarihiOdunc = new DateTimePicker();
-            btnKaydetEmanet = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -178,22 +177,11 @@
             dtpTeslimTarihiOdunc.Size = new Size(200, 23);
             dtpTeslimTarihiOdunc.TabIndex = 9;
             // 
-            // btnKaydetEmanet
-            // 
-            btnKaydetEmanet.Location = new Point(455, 29);
-            btnKaydetEmanet.Name = "btnKaydetEmanet";
-            btnKaydetEmanet.Size = new Size(120, 23);
-            btnKaydetEmanet.TabIndex = 10;
-            btnKaydetEmanet.Text = "Dosyaya Kaydet";
-            btnKaydetEmanet.UseVisualStyleBackColor = true;
-            btnKaydetEmanet.Click += btnKaydetEmanet_Click;
-            // 
             // OduncAl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(602, 262);
-            Controls.Add(btnKaydetEmanet);
             Controls.Add(dtpTeslimTarihiOdunc);
             Controls.Add(label3);
             Controls.Add(txtSureOdunc);
@@ -225,6 +213,5 @@
         public TextBox txtSureOdunc;
         public DateTimePicker dtpTeslimTarihiOdunc;
         public TextBox txtIsimOdunc;
-        private Button btnKaydetEmanet;
     }
 }

@@ -53,19 +53,5 @@ namespace GorselProgramlamaVizeSinav
             dtpTeslimTarihiOdunc.Value = DateTime.Now.AddDays(Convert.ToInt32(txtSureOdunc.Text));
         }
 
-        private void btnKaydetEmanet_Click(object sender, EventArgs e)
-        {
-            string yazilacak = JsonSerializer.Serialize<List<Emanet>>(Emanet.emanetler);
-
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "JSon Dosyası|*.json";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-
-                string dosyaYolu = dialog.FileName;
-                File.WriteAllText(dosyaYolu, yazilacak, Encoding.UTF8);
-
-            }
-        }
-    }
+     }
 }

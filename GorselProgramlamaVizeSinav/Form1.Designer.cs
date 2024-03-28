@@ -34,19 +34,19 @@
             kitapEkleToolStripMenuItem1 = new ToolStripMenuItem();
             kitapGüncelleSilToolStripMenuItem = new ToolStripMenuItem();
             emanetİşlemleriToolStripMenuItem = new ToolStripMenuItem();
+            emanetİşlemleriTsm = new ToolStripMenuItem();
+            dosyayaKaydetToolStripMenuItem = new ToolStripMenuItem();
+            dosyadanOkuToolStripMenuItem = new ToolStripMenuItem();
             dgvEmanetler = new DataGridView();
             btnAraMain = new Button();
             txtAraMain = new TextBox();
-            dosyaToolStripMenuItem = new ToolStripMenuItem();
-            kaydetTsm = new ToolStripMenuItem();
-            yükleTsm = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmanetler).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { üyeEkleToolStripMenuItem, kitapEkleToolStripMenuItem, emanetİşlemleriToolStripMenuItem, dosyaToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { üyeEkleToolStripMenuItem, kitapEkleToolStripMenuItem, emanetİşlemleriToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -83,10 +83,31 @@
             // 
             // emanetİşlemleriToolStripMenuItem
             // 
+            emanetİşlemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { emanetİşlemleriTsm, dosyayaKaydetToolStripMenuItem, dosyadanOkuToolStripMenuItem });
             emanetİşlemleriToolStripMenuItem.Name = "emanetİşlemleriToolStripMenuItem";
-            emanetİşlemleriToolStripMenuItem.Size = new Size(106, 20);
-            emanetİşlemleriToolStripMenuItem.Text = "Emanet İşlemleri";
-            emanetİşlemleriToolStripMenuItem.Click += emanetİşlemleriToolStripMenuItem_Click;
+            emanetİşlemleriToolStripMenuItem.Size = new Size(59, 20);
+            emanetİşlemleriToolStripMenuItem.Text = "Emanet";
+            // 
+            // emanetİşlemleriTsm
+            // 
+            emanetİşlemleriTsm.Name = "emanetİşlemleriTsm";
+            emanetİşlemleriTsm.Size = new Size(180, 22);
+            emanetİşlemleriTsm.Text = "Emanet İşlemleri";
+            emanetİşlemleriTsm.Click += emanetİşlemleriTsm_Click;
+            // 
+            // dosyayaKaydetToolStripMenuItem
+            // 
+            dosyayaKaydetToolStripMenuItem.Name = "dosyayaKaydetToolStripMenuItem";
+            dosyayaKaydetToolStripMenuItem.Size = new Size(180, 22);
+            dosyayaKaydetToolStripMenuItem.Text = "Dosyaya Kaydet";
+            dosyayaKaydetToolStripMenuItem.Click += dosyayaKaydetToolStripMenuItem_Click;
+            // 
+            // dosyadanOkuToolStripMenuItem
+            // 
+            dosyadanOkuToolStripMenuItem.Name = "dosyadanOkuToolStripMenuItem";
+            dosyadanOkuToolStripMenuItem.Size = new Size(180, 22);
+            dosyadanOkuToolStripMenuItem.Text = "Dosyadan Oku";
+            dosyadanOkuToolStripMenuItem.Click += dosyadanOkuToolStripMenuItem_Click;
             // 
             // dgvEmanetler
             // 
@@ -116,25 +137,6 @@
             txtAraMain.Name = "txtAraMain";
             txtAraMain.Size = new Size(263, 23);
             txtAraMain.TabIndex = 3;
-            // 
-            // dosyaToolStripMenuItem
-            // 
-            dosyaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kaydetTsm, yükleTsm });
-            dosyaToolStripMenuItem.Name = "dosyaToolStripMenuItem";
-            dosyaToolStripMenuItem.Size = new Size(51, 20);
-            dosyaToolStripMenuItem.Text = "Dosya";
-            // 
-            // kaydetTsm
-            // 
-            kaydetTsm.Name = "kaydetTsm";
-            kaydetTsm.Size = new Size(180, 22);
-            kaydetTsm.Text = "Kaydet";
-            // 
-            // yükleTsm
-            // 
-            yükleTsm.Name = "yükleTsm";
-            yükleTsm.Size = new Size(180, 22);
-            yükleTsm.Text = "Yükle";
             // 
             // Form1
             // 
@@ -166,8 +168,8 @@
         private DataGridView dgvEmanetler;
         private Button btnAraMain;
         private TextBox txtAraMain;
-        private ToolStripMenuItem dosyaToolStripMenuItem;
-        private ToolStripMenuItem kaydetTsm;
-        private ToolStripMenuItem yükleTsm;
+        private ToolStripMenuItem emanetİşlemleriTsm;
+        private ToolStripMenuItem dosyayaKaydetToolStripMenuItem;
+        private ToolStripMenuItem dosyadanOkuToolStripMenuItem;
     }
 }
