@@ -54,7 +54,7 @@
             txtAra.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtAra.Location = new Point(22, 19);
             txtAra.Name = "txtAra";
-            txtAra.Size = new Size(393, 23);
+            txtAra.Size = new Size(429, 23);
             txtAra.TabIndex = 8;
             // 
             // label1
@@ -71,7 +71,7 @@
             // btnAra
             // 
             btnAra.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAra.Location = new Point(421, 18);
+            btnAra.Location = new Point(457, 18);
             btnAra.Name = "btnAra";
             btnAra.Size = new Size(94, 23);
             btnAra.TabIndex = 9;
@@ -251,7 +251,6 @@
         private TextBox txtAra;
         private Label label1;
         private Button btnAra;
-        private DataGridView dgvUyeler;
         private GroupBox groupBox1;
         private TextBox txtSoyisim;
         private Label label2;
@@ -264,5 +263,6 @@
         private Button btnEkle;
         private Button btnGuncelle;
         private Button btnSil;
+        public DataGridView dgvUyeler;
     }
 }

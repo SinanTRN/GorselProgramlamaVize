@@ -10,6 +10,8 @@ namespace GorselProgramlamaVizeSinav
 {
     public class Uye
     {
+        public static List<Uye> uyeler = new List<Uye>();
+
         private string? _isim;
         private string? _soyisim;
         private string? _email;

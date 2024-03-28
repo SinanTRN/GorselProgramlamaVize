@@ -30,6 +30,9 @@
         {
             menuStrip1 = new MenuStrip();
             üyeEkleToolStripMenuItem = new ToolStripMenuItem();
+            üyeOperasyonlarıToolStripMenuItem = new ToolStripMenuItem();
+            üyeleriDosyayaKaydetToolStripMenuItem = new ToolStripMenuItem();
+            üyeleriDosyadanOkuToolStripMenuItem = new ToolStripMenuItem();
             kitapEkleToolStripMenuItem = new ToolStripMenuItem();
             kitapEkleToolStripMenuItem1 = new ToolStripMenuItem();
             kitapGüncelleSilToolStripMenuItem = new ToolStripMenuItem();
@@ -55,10 +58,31 @@
             // 
             // üyeEkleToolStripMenuItem
             // 
+            üyeEkleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { üyeOperasyonlarıToolStripMenuItem, üyeleriDosyayaKaydetToolStripMenuItem, üyeleriDosyadanOkuToolStripMenuItem });
             üyeEkleToolStripMenuItem.Name = "üyeEkleToolStripMenuItem";
             üyeEkleToolStripMenuItem.Size = new Size(86, 20);
             üyeEkleToolStripMenuItem.Text = "Üye İşlemleri";
-            üyeEkleToolStripMenuItem.Click += üyeEkleToolStripMenuItem_Click;
+            // 
+            // üyeOperasyonlarıToolStripMenuItem
+            // 
+            üyeOperasyonlarıToolStripMenuItem.Name = "üyeOperasyonlarıToolStripMenuItem";
+            üyeOperasyonlarıToolStripMenuItem.Size = new Size(196, 22);
+            üyeOperasyonlarıToolStripMenuItem.Text = "Üye Operasyonları";
+            üyeOperasyonlarıToolStripMenuItem.Click += üyeOperasyonlarıToolStripMenuItem_Click;
+            // 
+            // üyeleriDosyayaKaydetToolStripMenuItem
+            // 
+            üyeleriDosyayaKaydetToolStripMenuItem.Name = "üyeleriDosyayaKaydetToolStripMenuItem";
+            üyeleriDosyayaKaydetToolStripMenuItem.Size = new Size(196, 22);
+            üyeleriDosyayaKaydetToolStripMenuItem.Text = "Üyeleri Dosyaya Kaydet";
+            üyeleriDosyayaKaydetToolStripMenuItem.Click += üyeleriDosyayaKaydetToolStripMenuItem_Click;
+            // 
+            // üyeleriDosyadanOkuToolStripMenuItem
+            // 
+            üyeleriDosyadanOkuToolStripMenuItem.Name = "üyeleriDosyadanOkuToolStripMenuItem";
+            üyeleriDosyadanOkuToolStripMenuItem.Size = new Size(196, 22);
+            üyeleriDosyadanOkuToolStripMenuItem.Text = "Üyeleri Dosyadan Oku";
+            üyeleriDosyadanOkuToolStripMenuItem.Click += üyeleriDosyadanOkuToolStripMenuItem_Click;
             // 
             // kitapEkleToolStripMenuItem
             // 
@@ -91,21 +115,20 @@
             // emanetİşlemleriTsm
             // 
             emanetİşlemleriTsm.Name = "emanetİşlemleriTsm";
-            emanetİşlemleriTsm.Size = new Size(180, 22);
+            emanetİşlemleriTsm.Size = new Size(161, 22);
             emanetİşlemleriTsm.Text = "Emanet İşlemleri";
             emanetİşlemleriTsm.Click += emanetİşlemleriTsm_Click;
             // 
             // dosyayaKaydetToolStripMenuItem
             // 
             dosyayaKaydetToolStripMenuItem.Name = "dosyayaKaydetToolStripMenuItem";
-            dosyayaKaydetToolStripMenuItem.Size = new Size(180, 22);
+            dosyayaKaydetToolStripMenuItem.Size = new Size(161, 22);
             dosyayaKaydetToolStripMenuItem.Text = "Dosyaya Kaydet";
-            dosyayaKaydetToolStripMenuItem.Click += dosyayaKaydetToolStripMenuItem_Click;
             // 
             // dosyadanOkuToolStripMenuItem
             // 
             dosyadanOkuToolStripMenuItem.Name = "dosyadanOkuToolStripMenuItem";
-            dosyadanOkuToolStripMenuItem.Size = new Size(180, 22);
+            dosyadanOkuToolStripMenuItem.Size = new Size(161, 22);
             dosyadanOkuToolStripMenuItem.Text = "Dosyadan Oku";
             dosyadanOkuToolStripMenuItem.Click += dosyadanOkuToolStripMenuItem_Click;
             // 
@@ -171,5 +194,8 @@
         private ToolStripMenuItem emanetİşlemleriTsm;
         private ToolStripMenuItem dosyayaKaydetToolStripMenuItem;
         private ToolStripMenuItem dosyadanOkuToolStripMenuItem;
+        private ToolStripMenuItem üyeOperasyonlarıToolStripMenuItem;
+        private ToolStripMenuItem üyeleriDosyayaKaydetToolStripMenuItem;
+        private ToolStripMenuItem üyeleriDosyadanOkuToolStripMenuItem;
     }
 }

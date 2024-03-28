@@ -12,16 +12,16 @@ namespace GorselProgramlamaVizeSinav
 {
     public partial class Uye_Ekleme : Form
     {
-        DataTable dt;
+        public DataTable dtUyeler;
         public Uye_Ekleme()
         {
             InitializeComponent();
-            dt=new DataTable();
-            dt.Columns.Add("ID");
-            dt.Columns.Add("İsim");
-            dt.Columns.Add("Soyisim");
-            dt.Columns.Add("E Posta");
-            dt.Columns.Add("Telefon");
+            dtUyeler = new DataTable();
+            dtUyeler.Columns.Add("ID");
+            dtUyeler.Columns.Add("İsim");
+            dtUyeler.Columns.Add("Soyisim");
+            dtUyeler.Columns.Add("E Posta");
+            dtUyeler.Columns.Add("Telefon");
 
         }
 

@@ -26,12 +26,6 @@ namespace GorselProgramlamaVizeSinav
             dgvEmanetler.DataSource = dtEmanet;
         }
 
-        private void üyeEkleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Uye_Ekleme nesne = new Uye_Ekleme();
-            nesne.Show();
-        }
-
         private void kitapEkleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Kitap_Ekleme nesne = new Kitap_Ekleme();
@@ -42,11 +36,6 @@ namespace GorselProgramlamaVizeSinav
         {
             KitapSilGuncelle nesne = new KitapSilGuncelle();
             nesne.ShowDialog();
-        }
-
-        private void emanetÝþlemleriToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAra_Click(object sender, EventArgs e)
@@ -89,6 +78,45 @@ namespace GorselProgramlamaVizeSinav
             }
 
 
+        }
+
+        private void üyeleriDosyayaKaydetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string yazilacak = JsonSerializer.Serialize<List<Uye>>(Uye.uyeler);
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "JSon Dosyasý|*.json";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+
+                string dosyaYolu = dialog.FileName;
+                File.WriteAllText(dosyaYolu, yazilacak, Encoding.UTF8);
+
+            }
+        }
+
+        private void üyeOperasyonlarýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Uye_Ekleme nesne = new Uye_Ekleme();
+            nesne.Show();
+        }
+
+        private void üyeleriDosyadanOkuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Uye_Ekleme nesne = new Uye_Ekleme();
+            nesne.Show();
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "JSon Dosyasý|*.json";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string data = File.ReadAllText(dialog.FileName);
+                Uye.uyeler = JsonSerializer.Deserialize<List<Uye>>(data);
+                foreach (Uye uye in Uye.uyeler)
+                {
+                    uye.tabloyaEkle(nesne.dtUyeler);
+                }
+            }
+            nesne.dgvUyeler.DataSource = Uye.uyeler;
         }
     }
 }
