@@ -12,7 +12,7 @@ namespace GorselProgramlamaVizeSinav
 {
     public partial class KitapSilGuncelle : Form
     {
-        private DataTable dtKitap;
+        public DataTable dtKitap;
         public KitapSilGuncelle()
         {
             InitializeComponent();
@@ -23,11 +23,23 @@ namespace GorselProgramlamaVizeSinav
             dtKitap.Columns.Add("ISBN Numarası");
             dtKitap.Columns.Add("Baskı Sayısı");
             dtKitap.Columns.Add("Basım Yılı");
+            dtKitap.Columns.Add("Adeti");
+
+            dgvKitaplar.DataSource = dtKitap;
         }
 
         private void btnSilKitap_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void KitapSilGuncelle_Load(object sender, EventArgs e)
+        {
+            //foreach (var kitap in Kitap.kitaplar)
+            //{
+            //    kitap.tabloyaEkle(dtKitap);
+            //}
+            //dgvKitaplar.DataSource = dtKitap;
         }
     }
 }

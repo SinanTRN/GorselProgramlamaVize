@@ -16,6 +16,7 @@ namespace GorselProgramlamaVizeSinav
         private string? _ISBN;
         private int _baskiSayisi;
         private int _basimYili;
+        private int _adet;
 
         public string? Baslik { get { return _baslik; }set { _baslik = value; } }
         public string? Yazar { get { return _yazar; }set { _yazar = value; } }
@@ -27,7 +28,7 @@ namespace GorselProgramlamaVizeSinav
         public Kitap() { }
 
         public void tabloyaEkle(DataTable tablo) { 
-                tablo.Rows.Add(new object[] { _baslik, _yazar, _yayinevi, _ISBN, _baskiSayisi, _basimYili });
+                tablo.Rows.Add(new object[] { _baslik, _yazar, _yayinevi, _ISBN, _baskiSayisi, _basimYili,_adet });
         }
     }
 }

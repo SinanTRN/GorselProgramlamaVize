@@ -276,6 +276,7 @@
             Controls.Add(txtAraKitap);
             Name = "KitapSilGuncelle";
             Text = "KitapSilGuncelle";
+            Load += KitapSilGuncelle_Load;
             ((System.ComponentModel.ISupportInitialize)dgvKitaplar).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -290,7 +291,6 @@
 
         private Button btnSilKitap;
         private Button btnGuncelleKitap;
-        private DataGridView dgvKitaplar;
         private Button btnAraKitap;
         private TextBox txtAraKitap;
         private GroupBox groupBox1;
@@ -308,5 +308,6 @@
         private Label label6;
         private NumericUpDown txtAdetGuncelle;
         private Label label7;
+        public DataGridView dgvKitaplar;
     }
 }

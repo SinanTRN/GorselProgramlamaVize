@@ -116,7 +116,41 @@ namespace GorselProgramlamaVizeSinav
                     uye.tabloyaEkle(nesne.dtUyeler);
                 }
             }
-            nesne.dgvUyeler.DataSource = Uye.uyeler;
+            nesne.dgvUyeler.DataSource =nesne.dtUyeler;
+        }
+
+        private void kitaplarýDosyayaKaydetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string yazilacak = JsonSerializer.Serialize<List<Kitap>>(Kitap.kitaplar);
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "JSon Dosyasý|*.json";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+
+                string dosyaYolu = dialog.FileName;
+                File.WriteAllText(dosyaYolu, yazilacak, Encoding.UTF8);
+
+            }
+        }
+
+        private void kitaplarýDosyadanOkuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KitapSilGuncelle nesne = new KitapSilGuncelle();
+            nesne.Show();
+
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "JSon Dosyasý|*.json";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string data = File.ReadAllText(dialog.FileName);
+                Kitap.kitaplar = JsonSerializer.Deserialize<List<Kitap>>(data);
+                foreach (Kitap kitap in Kitap.kitaplar)
+                { 
+                    kitap.tabloyaEkle(nesne.dtKitap);
+                }
+            }
+            nesne.dgvKitaplar.DataSource = nesne.dtKitap;
         }
     }
 }

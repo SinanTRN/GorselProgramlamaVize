@@ -31,6 +31,7 @@ namespace GorselProgramlamaVizeSinav
             kitap.BaskiSayisi = Convert.ToInt32(txtBaskiSayisi.Value);
 
             Kitap.kitaplar.Add(kitap);
+            this.Close();
         }
     }
 }

@@ -36,6 +36,8 @@
             kitapEkleToolStripMenuItem = new ToolStripMenuItem();
             kitapEkleToolStripMenuItem1 = new ToolStripMenuItem();
             kitapGüncelleSilToolStripMenuItem = new ToolStripMenuItem();
+            kitaplarıDosyayaKaydetToolStripMenuItem = new ToolStripMenuItem();
+            kitaplarıDosyadanOkuToolStripMenuItem = new ToolStripMenuItem();
             emanetİşlemleriToolStripMenuItem = new ToolStripMenuItem();
             emanetİşlemleriTsm = new ToolStripMenuItem();
             dosyayaKaydetToolStripMenuItem = new ToolStripMenuItem();
@@ -43,8 +45,6 @@
             dgvEmanetler = new DataGridView();
             btnAraMain = new Button();
             txtAraMain = new TextBox();
-            kitaplarıDosyayaKaydetToolStripMenuItem = new ToolStripMenuItem();
-            kitaplarıDosyadanOkuToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmanetler).BeginInit();
             SuspendLayout();
@@ -107,6 +107,20 @@
             kitapGüncelleSilToolStripMenuItem.Text = "Kitap Güncelle / Sil";
             kitapGüncelleSilToolStripMenuItem.Click += kitapGüncelleSilToolStripMenuItem_Click;
             // 
+            // kitaplarıDosyayaKaydetToolStripMenuItem
+            // 
+            kitaplarıDosyayaKaydetToolStripMenuItem.Name = "kitaplarıDosyayaKaydetToolStripMenuItem";
+            kitaplarıDosyayaKaydetToolStripMenuItem.Size = new Size(203, 22);
+            kitaplarıDosyayaKaydetToolStripMenuItem.Text = "Kitapları Dosyaya Kaydet";
+            kitaplarıDosyayaKaydetToolStripMenuItem.Click += kitaplarıDosyayaKaydetToolStripMenuItem_Click;
+            // 
+            // kitaplarıDosyadanOkuToolStripMenuItem
+            // 
+            kitaplarıDosyadanOkuToolStripMenuItem.Name = "kitaplarıDosyadanOkuToolStripMenuItem";
+            kitaplarıDosyadanOkuToolStripMenuItem.Size = new Size(203, 22);
+            kitaplarıDosyadanOkuToolStripMenuItem.Text = "Kitapları Dosyadan Oku";
+            kitaplarıDosyadanOkuToolStripMenuItem.Click += kitaplarıDosyadanOkuToolStripMenuItem_Click;
+            // 
             // emanetİşlemleriToolStripMenuItem
             // 
             emanetİşlemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { emanetİşlemleriTsm, dosyayaKaydetToolStripMenuItem, dosyadanOkuToolStripMenuItem });
@@ -162,18 +176,6 @@
             txtAraMain.Name = "txtAraMain";
             txtAraMain.Size = new Size(263, 23);
             txtAraMain.TabIndex = 3;
-            // 
-            // kitaplarıDosyayaKaydetToolStripMenuItem
-            // 
-            kitaplarıDosyayaKaydetToolStripMenuItem.Name = "kitaplarıDosyayaKaydetToolStripMenuItem";
-            kitaplarıDosyayaKaydetToolStripMenuItem.Size = new Size(203, 22);
-            kitaplarıDosyayaKaydetToolStripMenuItem.Text = "Kitapları Dosyaya Kaydet";
-            // 
-            // kitaplarıDosyadanOkuToolStripMenuItem
-            // 
-            kitaplarıDosyadanOkuToolStripMenuItem.Name = "kitaplarıDosyadanOkuToolStripMenuItem";
-            kitaplarıDosyadanOkuToolStripMenuItem.Size = new Size(203, 22);
-            kitaplarıDosyadanOkuToolStripMenuItem.Text = "Kitapları Dosyadan Oku";
             // 
             // Form1
             // 
