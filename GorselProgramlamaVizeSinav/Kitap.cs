@@ -9,6 +9,7 @@ namespace GorselProgramlamaVizeSinav
 {
     public class Kitap
     {
+        public static List<Kitap> kitaplar= new List<Kitap>();
         private string? _baslik;
         private string? _yazar;
         private string? _yayinevi;

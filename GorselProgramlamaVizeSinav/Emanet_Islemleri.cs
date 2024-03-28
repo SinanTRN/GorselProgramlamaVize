@@ -13,7 +13,6 @@ namespace GorselProgramlamaVizeSinav
     public partial class Emanet_Islemleri : Form
     {
         
-        Emanet emanet = new Emanet();
         public Emanet_Islemleri()
         {
             InitializeComponent();
