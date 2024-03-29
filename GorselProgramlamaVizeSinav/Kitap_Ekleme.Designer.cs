@@ -81,6 +81,7 @@
             txtBasimYili.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBasimYili.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtBasimYili.Location = new Point(79, 197);
+            txtBasimYili.Maximum = new decimal(new int[] { 2025, 0, 0, 0 });
             txtBasimYili.Name = "txtBasimYili";
             txtBasimYili.Size = new Size(120, 23);
             txtBasimYili.TabIndex = 6;

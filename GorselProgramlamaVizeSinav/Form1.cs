@@ -48,21 +48,6 @@ namespace GorselProgramlamaVizeSinav
             nesne.Show();
         }
 
-        public static void dosyayaKaydetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string yazilacak = JsonSerializer.Serialize<List<Emanet>>(Emanet.emanetler);
-
-            SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "JSon Dosyasý|*.json";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-
-                string dosyaYolu = dialog.FileName;
-                File.WriteAllText(dosyaYolu, yazilacak, Encoding.UTF8);
-
-            }
-        }
-
         private void dosyadanOkuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -116,7 +101,7 @@ namespace GorselProgramlamaVizeSinav
                     uye.tabloyaEkle(nesne.dtUyeler);
                 }
             }
-            nesne.dgvUyeler.DataSource =nesne.dtUyeler;
+            nesne.dgvUyeler.DataSource = nesne.dtUyeler;
         }
 
         private void kitaplarýDosyayaKaydetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,11 +131,26 @@ namespace GorselProgramlamaVizeSinav
                 string data = File.ReadAllText(dialog.FileName);
                 Kitap.kitaplar = JsonSerializer.Deserialize<List<Kitap>>(data);
                 foreach (Kitap kitap in Kitap.kitaplar)
-                { 
+                {
                     kitap.tabloyaEkle(nesne.dtKitap);
                 }
             }
             nesne.dgvKitaplar.DataSource = nesne.dtKitap;
+        }
+
+        private void dosyayaKaydetToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            string yazilacak = JsonSerializer.Serialize<List<Emanet>>(Emanet.emanetler);
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "JSon Dosyasý|*.json";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+
+                string dosyaYolu = dialog.FileName;
+                File.WriteAllText(dosyaYolu, yazilacak, Encoding.UTF8);
+
+            }
         }
     }
 }

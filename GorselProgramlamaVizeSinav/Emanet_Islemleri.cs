@@ -20,7 +20,6 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnOduncAl_Click(object sender, EventArgs e)
         {
-            
             OduncAl nesne = new OduncAl(txtEmanetBaslik.Text,txtEmanetYazar.Text);
             nesne.ShowDialog();
         }

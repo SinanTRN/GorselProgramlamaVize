@@ -29,6 +29,7 @@ namespace GorselProgramlamaVizeSinav
             kitap.ISBN = txtISBN.Text;
             kitap.BasimYili = Convert.ToInt32(txtBasimYili.Value);
             kitap.BaskiSayisi = Convert.ToInt32(txtBaskiSayisi.Value);
+            kitap.Adet=Convert.ToInt32(txtAdet.Value);
 
             Kitap.kitaplar.Add(kitap);
             this.Close();

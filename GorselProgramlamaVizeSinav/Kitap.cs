@@ -24,6 +24,7 @@ namespace GorselProgramlamaVizeSinav
         public string? ISBN { get { return _ISBN; }set { _ISBN = value; } }
         public int BaskiSayisi { get {  return _baskiSayisi; } set { _baskiSayisi = value; } }
         public int BasimYili { get { return _basimYili;}set { _basimYili = value; } }
+        public int Adet { get { return _adet;}set { _adet = value; } }
 
         public Kitap() { }
 

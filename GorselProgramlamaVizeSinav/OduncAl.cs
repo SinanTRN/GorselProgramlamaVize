@@ -16,14 +16,14 @@ namespace GorselProgramlamaVizeSinav
         public Emanet emanet = new Emanet();
         string txtEmanetBaslik = "";
         string txtEmanetYazar = "";
-        public OduncAl()
-        {
-            InitializeComponent();
-        }
         public OduncAl(string a,string b)
         {
             txtEmanetBaslik = a;
             txtEmanetYazar = b;
+            InitializeComponent();
+        }
+        public OduncAl()
+        {
             InitializeComponent();
         }
 

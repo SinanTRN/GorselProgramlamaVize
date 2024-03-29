@@ -131,20 +131,21 @@
             // emanetİşlemleriTsm
             // 
             emanetİşlemleriTsm.Name = "emanetİşlemleriTsm";
-            emanetİşlemleriTsm.Size = new Size(161, 22);
+            emanetİşlemleriTsm.Size = new Size(180, 22);
             emanetİşlemleriTsm.Text = "Emanet İşlemleri";
             emanetİşlemleriTsm.Click += emanetİşlemleriTsm_Click;
             // 
             // dosyayaKaydetToolStripMenuItem
             // 
             dosyayaKaydetToolStripMenuItem.Name = "dosyayaKaydetToolStripMenuItem";
-            dosyayaKaydetToolStripMenuItem.Size = new Size(161, 22);
+            dosyayaKaydetToolStripMenuItem.Size = new Size(180, 22);
             dosyayaKaydetToolStripMenuItem.Text = "Dosyaya Kaydet";
+            dosyayaKaydetToolStripMenuItem.Click += dosyayaKaydetToolStripMenuItem_Click_1;
             // 
             // dosyadanOkuToolStripMenuItem
             // 
             dosyadanOkuToolStripMenuItem.Name = "dosyadanOkuToolStripMenuItem";
-            dosyadanOkuToolStripMenuItem.Size = new Size(161, 22);
+            dosyadanOkuToolStripMenuItem.Size = new Size(180, 22);
             dosyadanOkuToolStripMenuItem.Text = "Dosyadan Oku";
             dosyadanOkuToolStripMenuItem.Click += dosyadanOkuToolStripMenuItem_Click;
             // 
