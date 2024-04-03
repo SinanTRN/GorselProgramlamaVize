@@ -79,6 +79,7 @@
             btnGuncelleKitap.TabIndex = 7;
             btnGuncelleKitap.Text = "Güncelle";
             btnGuncelleKitap.UseVisualStyleBackColor = false;
+            btnGuncelleKitap.Click += btnGuncelleKitap_Click;
             // 
             // dgvKitaplar
             // 
@@ -90,6 +91,7 @@
             dgvKitaplar.Name = "dgvKitaplar";
             dgvKitaplar.Size = new Size(428, 391);
             dgvKitaplar.TabIndex = 10;
+            dgvKitaplar.SelectionChanged += dgvKitaplar_SelectionChanged;
             // 
             // btnAraKitap
             // 
@@ -148,6 +150,7 @@
             txtBasimYiliGuncelle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtBasimYiliGuncelle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtBasimYiliGuncelle.Location = new Point(93, 196);
+            txtBasimYiliGuncelle.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
             txtBasimYiliGuncelle.Name = "txtBasimYiliGuncelle";
             txtBasimYiliGuncelle.Size = new Size(120, 23);
             txtBasimYiliGuncelle.TabIndex = 6;
