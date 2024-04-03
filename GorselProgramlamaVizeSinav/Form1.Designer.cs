@@ -205,7 +205,6 @@
         private ToolStripMenuItem emanetİşlemleriToolStripMenuItem;
         private ToolStripMenuItem kitapEkleToolStripMenuItem1;
         private ToolStripMenuItem kitapGüncelleSilToolStripMenuItem;
-        private DataGridView dgvEmanetler;
         private Button btnAraMain;
         private TextBox txtAraMain;
         private ToolStripMenuItem emanetİşlemleriTsm;
@@ -216,5 +215,6 @@
         private ToolStripMenuItem üyeleriDosyadanOkuToolStripMenuItem;
         private ToolStripMenuItem kitaplarıDosyayaKaydetToolStripMenuItem;
         private ToolStripMenuItem kitaplarıDosyadanOkuToolStripMenuItem;
+        public DataGridView dgvEmanetler;
     }
 }

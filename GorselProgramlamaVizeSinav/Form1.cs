@@ -6,7 +6,7 @@ namespace GorselProgramlamaVizeSinav
 {
     public partial class Form1 : Form
     {
-        DataTable dtEmanet;
+        public DataTable dtEmanet;
         private List<Emanet> emanetler;
 
         public Form1()
@@ -44,7 +44,7 @@ namespace GorselProgramlamaVizeSinav
 
         private void emanetÝþlemleriTsm_Click(object sender, EventArgs e)
         {
-            Emanet_Islemleri nesne = new Emanet_Islemleri();
+            Emanet_Islemleri nesne = new Emanet_Islemleri(this);
             nesne.Show();
         }
 

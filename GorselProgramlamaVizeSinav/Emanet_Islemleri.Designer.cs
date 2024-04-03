@@ -124,6 +124,7 @@
             btnIade.TabIndex = 3;
             btnIade.Text = "İade Et";
             btnIade.UseVisualStyleBackColor = false;
+            btnIade.Click += btnIade_Click;
             // 
             // Emanet_Islemleri
             // 
