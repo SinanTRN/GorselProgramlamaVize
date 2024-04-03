@@ -89,6 +89,7 @@
             dgvUyeler.Size = new Size(529, 429);
             dgvUyeler.TabIndex = 3;
             dgvUyeler.CellContentClick += dgvUyeler_CellContentClick;
+            dgvUyeler.SelectionChanged += dgvUyeler_SelectionChanged;
             // 
             // groupBox1
             // 
@@ -209,6 +210,7 @@
             btnGuncelle.TabIndex = 6;
             btnGuncelle.Text = "Güncelle";
             btnGuncelle.UseVisualStyleBackColor = false;
+            btnGuncelle.Click += btnGuncelle_Click;
             // 
             // btnSil
             // 
@@ -221,6 +223,7 @@
             btnSil.TabIndex = 5;
             btnSil.Text = "Sil";
             btnSil.UseVisualStyleBackColor = false;
+            btnSil.Click += btnSil_Click;
             // 
             // Uye_Ekleme
             // 
