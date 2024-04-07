@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,32 @@ namespace GorselProgramlamaVizeSinav
     {
         public DataTable dtUyeler;
         Uye uye;
+        SQLiteConnection baglanti;
         public Uye_Ekleme()
         {
             InitializeComponent();
+            string baglanti_metni = "Data Source=kutuphane.db;Version=3;";
+
+            try
+            {
+                baglanti = new SQLiteConnection(baglanti_metni);
+                baglanti.Open();
+                tabloGuncelle();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQLite Baglantısı kurulamadı",
+                                "Bağlantı hatası",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+        public void tabloGuncelle()
+        {
+            SQLiteCommand komut = new SQLiteCommand();
+            komut.Connection = baglanti;
+            komut.CommandText = "SELECT * FROM uyeler";
+
             dtUyeler = new DataTable();
             dtUyeler.Columns.Add("ID");
             dtUyeler.Columns.Add("İsim");
@@ -24,8 +48,17 @@ namespace GorselProgramlamaVizeSinav
             dtUyeler.Columns.Add("E Posta");
             dtUyeler.Columns.Add("Telefon");
 
-            dgvUyeler.DataSource = dtUyeler;
+            var okuyucu = komut.ExecuteReader();
+            while (okuyucu.Read())
+            {
+                dtUyeler.Rows.Add(new object[] { okuyucu.GetInt32(0) ,
+                                                   okuyucu.GetString(1),
+                                                    okuyucu.GetString(2),
+                                                    okuyucu.IsDBNull(3) ? "" : okuyucu.GetString(3),
+                                                    okuyucu.GetString(4)});
 
+            }
+            dgvUyeler.DataSource = dtUyeler;
         }
 
         private void dgvUyeler_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -35,16 +68,31 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            uye = new Uye();
-            uye.Isim = txtIsim.Text;
-            uye.Soyisim = txtSoyisim.Text;
-            uye.Telefon = txtTelefon.Text;
-            uye.Eposta = txtMail.Text;
+            SQLiteCommand komut = new SQLiteCommand();
+            komut.Connection = baglanti;
+            komut.CommandText = $"INSERT INTO uyeler (telefon,isim,soyisim,email) VALUES(\"{txtTelefon.Text}\", \"{txtIsim.Text}\", \"{txtSoyisim.Text}\", \"{txtMail.Text}\")";
 
-            uye.tabloyaEkle(dtUyeler);
-            Uye.uyeler.Add(uye);
 
-            dgvUyeler.DataSource = dtUyeler;
+            int eklenen_sayisi = komut.ExecuteNonQuery();
+            if (eklenen_sayisi > 0)
+                tabloGuncelle();
+
+            txtTelefon.Text = "";
+            txtIsim.Text = "";
+            txtSoyisim.Text = "";
+            txtMail.Text = "";
+
+
+            //uye = new Uye();
+            //uye.Isim = txtIsim.Text;
+            //uye.Soyisim = txtSoyisim.Text;
+            //uye.Telefon = txtTelefon.Text;
+            //uye.Eposta = txtMail.Text;
+
+            //uye.tabloyaEkle(dtUyeler);
+            //Uye.uyeler.Add(uye);
+
+            //dgvUyeler.DataSource = dtUyeler;
 
         }
 
@@ -126,6 +174,24 @@ namespace GorselProgramlamaVizeSinav
             else
             {
                 MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void Uye_Ekleme_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (baglanti != null && baglanti.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    baglanti.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("SQLite Baglantisi sonlandirilirken hata ile karsilasildi",
+                                    "Baglanti sonlandirma hatasi",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
             }
         }
     }

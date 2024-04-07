@@ -240,6 +240,7 @@
             Controls.Add(txtAra);
             Name = "Uye_Ekleme";
             Text = "Uye_Ekleme";
+            FormClosing += Uye_Ekleme_FormClosing;
             ((System.ComponentModel.ISupportInitialize)dgvUyeler).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

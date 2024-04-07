@@ -1,6 +1,7 @@
 using System.Data;
 using System.Text.Json;
 using System.Text;
+using System.Data.SQLite;
 
 namespace GorselProgramlamaVizeSinav
 {
@@ -12,6 +13,7 @@ namespace GorselProgramlamaVizeSinav
         public Form1()
         {
             InitializeComponent();
+
 
             dtEmanet = new DataTable();
             dtEmanet.Columns.Add("Emanent ID");
