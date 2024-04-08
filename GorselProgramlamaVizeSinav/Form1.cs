@@ -123,21 +123,21 @@ namespace GorselProgramlamaVizeSinav
 
         private void kitaplarýDosyadanOkuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            KitapSilGuncelle nesne = new KitapSilGuncelle();
-            nesne.Show();
+            //KitapSilGuncelle nesne = new KitapSilGuncelle();
+            //nesne.Show();
 
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "JSon Dosyasý|*.json";
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                string data = File.ReadAllText(dialog.FileName);
-                Kitap.kitaplar = JsonSerializer.Deserialize<List<Kitap>>(data);
-                foreach (Kitap kitap in Kitap.kitaplar)
-                {
-                    kitap.tabloyaEkle(nesne.dtKitap);
-                }
-            }
-            nesne.dgvKitaplar.DataSource = nesne.dtKitap;
+            //OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.Filter = "JSon Dosyasý|*.json";
+            //if (dialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    string data = File.ReadAllText(dialog.FileName);
+            //    Kitap.kitaplar = JsonSerializer.Deserialize<List<Kitap>>(data);
+            //    foreach (Kitap kitap in Kitap.kitaplar)
+            //    {
+            //        kitap.tabloyaEkle(nesne.dtKitap);
+            //    }
+            //}
+            //nesne.dgvKitaplar.DataSource = nesne.dtKitap;
         }
 
         private void dosyayaKaydetToolStripMenuItem_Click_1(object sender, EventArgs e)

@@ -31,10 +31,6 @@ namespace GorselProgramlamaVizeSinav
         {
                 tablo.Rows.Add(new object[] { ID, _isim, _soyisim, _email, _telefon });
         }
-        public void tabloyuGuncelle(DataTable tablo,int Id)
-        {
-
-        }
 
     }
 }

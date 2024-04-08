@@ -241,6 +241,7 @@
             Controls.Add(groupBox1);
             Name = "Kitap_Ekleme";
             Text = "Kitap_Ekleme";
+            FormClosing += Kitap_Ekleme_FormClosing;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtBasimYili).EndInit();

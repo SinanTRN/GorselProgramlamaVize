@@ -279,6 +279,7 @@
             Controls.Add(txtAraKitap);
             Name = "KitapSilGuncelle";
             Text = "KitapSilGuncelle";
+            FormClosing += KitapSilGuncelle_FormClosing;
             Load += KitapSilGuncelle_Load;
             ((System.ComponentModel.ISupportInitialize)dgvKitaplar).EndInit();
             groupBox1.ResumeLayout(false);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,33 @@ namespace GorselProgramlamaVizeSinav
     public partial class KitapSilGuncelle : Form
     {
         public DataTable dtKitap;
+        SQLiteConnection baglanti;
         public KitapSilGuncelle()
         {
             InitializeComponent();
+
+            string baglanti_metni = "Data Source=kutuphane.db;Version=3;";
+
+            try
+            {
+                baglanti = new SQLiteConnection(baglanti_metni);
+                baglanti.Open();
+                tabloGuncelle();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQLite Baglantısı kurulamadı",
+                                "Bağlantı hatası",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+        public void tabloGuncelle()
+        {
+            SQLiteCommand komut = new SQLiteCommand();
+            komut.Connection = baglanti;
+            komut.CommandText = "SELECT * FROM kitaplar";
+
             dtKitap = new DataTable();
             dtKitap.Columns.Add("Başlık");
             dtKitap.Columns.Add("Yazar");
@@ -25,9 +50,17 @@ namespace GorselProgramlamaVizeSinav
             dtKitap.Columns.Add("Basım Yılı");
             dtKitap.Columns.Add("Adeti");
 
-            foreach (var kitap in Kitap.kitaplar)
+            var okuyucu = komut.ExecuteReader();
+            while (okuyucu.Read())
             {
-                kitap.tabloyaEkle(dtKitap);
+                dtKitap.Rows.Add(new object[] { okuyucu.GetString(0) ,
+                                                   okuyucu.GetString(1),
+                                                    okuyucu.GetString(2),
+                                                    okuyucu.GetString(3),
+                                                    okuyucu.GetInt32(4),
+                                                    okuyucu.GetInt32(5),
+                                                    okuyucu.GetInt32(6)});
+
             }
             dgvKitaplar.DataSource = dtKitap;
         }
@@ -107,7 +140,7 @@ namespace GorselProgramlamaVizeSinav
                     kitap.tabloyaEkle(dtKitap);
                 }
 
-                dgvKitaplar.DataSource =dtKitap;
+                dgvKitaplar.DataSource = dtKitap;
 
 
                 txtBaslikGuncelle.Text = "";
@@ -129,7 +162,7 @@ namespace GorselProgramlamaVizeSinav
         {
             if (dgvKitaplar.CurrentRow != null)
             {
-                string Id = dgvKitaplar.CurrentRow.Cells[3].Value+"";
+                string Id = dgvKitaplar.CurrentRow.Cells[3].Value + "";
                 foreach (var kitap in Kitap.kitaplar)
                 {
                     if (kitap.ISBN == Id)
@@ -139,9 +172,27 @@ namespace GorselProgramlamaVizeSinav
                         txtYayinEviGuncelle.Text = kitap.Yayinevi;
                         txtISBNGuncelle.Text = kitap.ISBN;
                         txtBasimYiliGuncelle.Value = kitap.BasimYili;
-                        txtBaskiSayisiGuncelle.Value= kitap.BaskiSayisi;
+                        txtBaskiSayisiGuncelle.Value = kitap.BaskiSayisi;
                         txtAdetGuncelle.Value = kitap.Adet;
                     }
+                }
+            }
+        }
+
+        private void KitapSilGuncelle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (baglanti != null && baglanti.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    baglanti.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("SQLite Baglantisi sonlandirilirken hata ile karsilasildi",
+                                    "Baglanti sonlandirma hatasi",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
                 }
             }
         }
