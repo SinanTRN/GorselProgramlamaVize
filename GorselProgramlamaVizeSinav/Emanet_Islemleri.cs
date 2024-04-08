@@ -27,6 +27,8 @@ namespace GorselProgramlamaVizeSinav
         {
             OduncAl nesne = new OduncAl(txtEmanetBaslik.Text, txtEmanetYazar.Text, form1);
             nesne.ShowDialog();
+            txtEmanetBaslik.Text = "";
+            txtEmanetYazar.Text = "";
         }
 
         private void btnSureUzat_Click(object sender, EventArgs e)

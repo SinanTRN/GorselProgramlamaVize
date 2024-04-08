@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,12 +18,28 @@ namespace GorselProgramlamaVizeSinav
         string txtEmanetBaslik = "";
         string txtEmanetYazar = "";
         Form1 form1;
+
+        SQLiteConnection baglanti;
         public OduncAl(string a,string b,Form1 form)
         {
             txtEmanetBaslik = a;
             txtEmanetYazar = b;
             form1= form;
             InitializeComponent();
+            string baglanti_metni = "Data Source=kutuphane.db;Version=3;";
+
+            try
+            {
+                baglanti = new SQLiteConnection(baglanti_metni);
+                baglanti.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQLite Baglantısı kurulamadı",
+                                "Bağlantı hatası",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
         public OduncAl()
         {
@@ -33,19 +50,31 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnOkOdunc_Click(object sender, EventArgs e)
         {
-            emanet = new Emanet();
-            emanet.KitapBaslik= txtEmanetBaslik;
-            emanet.KitapYazar= txtEmanetYazar;
-            emanet.UyeIsmi = txtIsimOdunc.Text;
-            emanet.uyeSoyismi = txtSoyisimOdunc.Text;
-            emanet.UyeId = Convert.ToInt32(txtIdOdunc.Text);
-            emanet.AlinmaTarihi = DateTime.Now;
-            emanet.TeslimTarihi = dtpTeslimTarihiOdunc.Value;
 
-            emanet.tabloyaEkle(form1.dtEmanet);
-            Emanet.emanetler.Add(emanet);
-           
-            form1.dgvEmanetler.DataSource = form1.dtEmanet;
+
+            SQLiteCommand komut = new SQLiteCommand();
+            komut.Connection = baglanti;
+            komut.CommandText = $"INSERT INTO emanetler (uye_Id,uye_Ismi,uye_Soyismi,kitap_Baslik,kitap_Yazar,alınan_Tarih,teslim_Tarihi) VALUES(\"{Convert.ToInt32(txtIdOdunc.Text)}\",\"{txtIsimOdunc.Text}\"," +
+                $"                                                                           \"{txtSoyisimOdunc.Text}\",\"{txtEmanetBaslik}\"," +
+                $"                                                                            \"{txtEmanetYazar}\",\"{DateTime.Now.ToString()}\"," +
+                $"                                                                             \"{dtpTeslimTarihiOdunc.Value.ToString()}\")";
+
+
+            komut.ExecuteNonQuery();
+            form1.tabloGuncelle();
+            //emanet = new Emanet();
+            //emanet.KitapBaslik= txtEmanetBaslik;
+            //emanet.KitapYazar= txtEmanetYazar;
+            //emanet.UyeIsmi = txtIsimOdunc.Text;
+            //emanet.uyeSoyismi = txtSoyisimOdunc.Text;
+            //emanet.UyeId = Convert.ToInt32(txtIdOdunc.Text);
+            //emanet.AlinmaTarihi = DateTime.Now;
+            //emanet.TeslimTarihi = dtpTeslimTarihiOdunc.Value;
+
+            //emanet.tabloyaEkle(form1.dtEmanet);
+            //Emanet.emanetler.Add(emanet);
+
+            //form1.dgvEmanetler.DataSource = form1.dtEmanet;
 
             this.Close();
         }

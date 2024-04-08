@@ -10,24 +10,71 @@ namespace GorselProgramlamaVizeSinav
         public DataTable dtEmanet;
         private List<Emanet> emanetler;
 
+        SQLiteConnection baglanti;
+
         public Form1()
         {
             InitializeComponent();
 
+            string baglanti_metni = "Data Source=kutuphane.db;Version=3;";
+
+            try
+            {
+                baglanti = new SQLiteConnection(baglanti_metni);
+                baglanti.Open();
+                tabloGuncelle();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQLite Baglantýsý kurulamadý",
+                                "Baðlantý hatasý",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+
+            //dtEmanet = new DataTable();
+            //dtEmanet.Columns.Add("Emanent ID");
+            //dtEmanet.Columns.Add("Üye ID");
+            //dtEmanet.Columns.Add("isim");
+            //dtEmanet.Columns.Add("Soyisim");
+            //dtEmanet.Columns.Add("Baþlýk");
+            //dtEmanet.Columns.Add("Yazar");
+            //dtEmanet.Columns.Add("Alýndýðý Tarih");
+            //dtEmanet.Columns.Add("Teslim Tarihi");
+
+            //dgvEmanetler.DataSource = dtEmanet;
+        }
+        public void tabloGuncelle()
+        {
+            SQLiteCommand komut = new SQLiteCommand();
+            komut.Connection = baglanti;
+            komut.CommandText = "SELECT * FROM emanetler";
 
             dtEmanet = new DataTable();
             dtEmanet.Columns.Add("Emanent ID");
             dtEmanet.Columns.Add("Üye ID");
-            dtEmanet.Columns.Add("isim");
+            dtEmanet.Columns.Add("Ýsim");
             dtEmanet.Columns.Add("Soyisim");
             dtEmanet.Columns.Add("Baþlýk");
             dtEmanet.Columns.Add("Yazar");
             dtEmanet.Columns.Add("Alýndýðý Tarih");
             dtEmanet.Columns.Add("Teslim Tarihi");
 
+            var okuyucu = komut.ExecuteReader();
+            while (okuyucu.Read())
+            {
+                dtEmanet.Rows.Add(new object[] { okuyucu.GetInt32(0) ,
+                                                   okuyucu.GetInt32(1),
+                                                    okuyucu.GetString(2),
+                                                    okuyucu.GetString(3),
+                                                    okuyucu.GetString(4),
+                                                    okuyucu.GetString(5),
+                                                    okuyucu.GetString(6),
+                                                    okuyucu.GetString(7)});
+
+            }
             dgvEmanetler.DataSource = dtEmanet;
         }
-
         private void kitapEkleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Kitap_Ekleme nesne = new Kitap_Ekleme();
