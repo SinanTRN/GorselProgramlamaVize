@@ -91,7 +91,7 @@
             dgvKitaplar.Name = "dgvKitaplar";
             dgvKitaplar.Size = new Size(428, 391);
             dgvKitaplar.TabIndex = 10;
-            dgvKitaplar.SelectionChanged += dgvKitaplar_SelectionChanged;
+            dgvKitaplar.CellClick += dgvKitaplar_CellClick;
             // 
             // btnAraKitap
             // 
@@ -280,7 +280,6 @@
             Name = "KitapSilGuncelle";
             Text = "KitapSilGuncelle";
             FormClosing += KitapSilGuncelle_FormClosing;
-            Load += KitapSilGuncelle_Load;
             ((System.ComponentModel.ISupportInitialize)dgvKitaplar).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

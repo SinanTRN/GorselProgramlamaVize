@@ -70,24 +70,38 @@ namespace GorselProgramlamaVizeSinav
             if (txtBaslikGuncelle.Text != "" && txtYazarGuncelle.Text != "" && txtYayinEviGuncelle.Text != "" && txtISBNGuncelle.Text != "" &&
                 txtBaskiSayisiGuncelle.Value != 0 && txtBasimYiliGuncelle.Value != 0)
             {
-                string Id = dgvKitaplar.CurrentRow.Cells[3].Value + "";
-
-                for (int i = Kitap.kitaplar.Count - 1; i >= 0; i--)
+                try
                 {
-                    if (Kitap.kitaplar[i].ISBN == Id)
-                    {
-                        Kitap.kitaplar.Remove(Kitap.kitaplar[i]);
-                    }
-                }
-                dtKitap.Rows.Clear();
-                dgvKitaplar.DataSource = dtKitap;
+                    string isbn = dgvKitaplar.CurrentRow.Cells[3].Value +"";
 
-                foreach (var kitap in Kitap.kitaplar)
-                {
-                    kitap.tabloyaEkle(dtKitap);
-                }
+                    SQLiteCommand komut = new SQLiteCommand();
+                    komut.Connection = baglanti;
+                    komut.CommandText = $"DELETE FROM kitaplar WHERE ISBN = {isbn}";
 
-                dgvKitaplar.DataSource = dtKitap;
+                    int eklenen_sayisi = komut.ExecuteNonQuery();
+                    if (eklenen_sayisi > 0)
+                        tabloGuncelle();
+                }
+                catch (Exception ex) { }
+
+                //string Id = dgvKitaplar.CurrentRow.Cells[3].Value + "";
+
+                //for (int i = Kitap.kitaplar.Count - 1; i >= 0; i--)
+                //{
+                //    if (Kitap.kitaplar[i].ISBN == Id)
+                //    {
+                //        Kitap.kitaplar.Remove(Kitap.kitaplar[i]);
+                //    }
+                //}
+                //dtKitap.Rows.Clear();
+                //dgvKitaplar.DataSource = dtKitap;
+
+                //foreach (var kitap in Kitap.kitaplar)
+                //{
+                //    kitap.tabloyaEkle(dtKitap);
+                //}
+
+                //dgvKitaplar.DataSource = dtKitap;
 
                 txtBaslikGuncelle.Text = "";
                 txtYazarGuncelle.Text = "";
@@ -99,48 +113,59 @@ namespace GorselProgramlamaVizeSinav
             }
             else
             {
-                MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lutfen kitap seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void KitapSilGuncelle_Load(object sender, EventArgs e)
-        {
-            //foreach (var kitap in Kitap.kitaplar)
-            //{
-            //    kitap.tabloyaEkle(dtKitap);
-            //}
-            //dgvKitaplar.DataSource = dtKitap;
         }
 
         private void btnGuncelleKitap_Click(object sender, EventArgs e)
         {
             if (txtBaslikGuncelle.Text != "" && txtYazarGuncelle.Text != "" && txtYayinEviGuncelle.Text != "" && txtISBNGuncelle.Text != "" &&
                 txtBaskiSayisiGuncelle.Value != 0 && txtBasimYiliGuncelle.Value != 0)
-            {
-                string isbn = dgvKitaplar.CurrentRow.Cells[3].Value + "";
-
-                foreach (var kitap in Kitap.kitaplar)
+            {      
+                try
                 {
-                    if (kitap.ISBN == isbn)
-                    {
-                        kitap.Baslik = txtBaslikGuncelle.Text;
-                        kitap.Yazar = txtYazarGuncelle.Text;
-                        kitap.Yayinevi = txtYayinEviGuncelle.Text;
-                        kitap.ISBN = txtISBNGuncelle.Text;
-                        kitap.BasimYili = Convert.ToInt32(txtBasimYiliGuncelle.Value);
-                        kitap.BaskiSayisi = Convert.ToInt32(txtBaskiSayisiGuncelle.Value);
-                        kitap.Adet = Convert.ToInt32(txtAdetGuncelle.Value);
-                    }
-                }
-                dtKitap.Rows.Clear();
-                dgvKitaplar.DataSource = dtKitap;
+                    string isbn = dgvKitaplar.CurrentRow.Cells[3].Value + "";
 
-                foreach (var kitap in Kitap.kitaplar)
-                {
-                    kitap.tabloyaEkle(dtKitap);
-                }
+                    SQLiteCommand komut = new SQLiteCommand();
+                    komut.Connection = baglanti;
+                    komut.CommandText = $"UPDATE kitaplar SET baslik=\"{txtBaslikGuncelle.Text}\"," +
+                        $"                                  yazar=\"{txtYazarGuncelle.Text}\"," +
+                        $"                                  yayinevi=\"{txtYayinEviGuncelle.Text}\"," +
+                        $"                                  ISBN=\"{txtISBNGuncelle.Text}\"," +
+                        $"                                  baski_sayisi=\"{txtBaskiSayisiGuncelle.Value}\"," +
+                        $"                                  basim_yili=\"{txtBasimYiliGuncelle.Value}\"," +
+                        $"                                  adet=\"{txtAdetGuncelle.Value}\" WHERE ISBN={isbn}";
 
-                dgvKitaplar.DataSource = dtKitap;
+                    int eklenen_sayisi = komut.ExecuteNonQuery();
+                    if (eklenen_sayisi > 0)
+                        tabloGuncelle();
+                }
+                catch (Exception ex) { }
+
+
+
+                //foreach (var kitap in Kitap.kitaplar)
+                //{
+                //    if (kitap.ISBN == isbn)
+                //    {
+                //        kitap.Baslik = txtBaslikGuncelle.Text;
+                //        kitap.Yazar = txtYazarGuncelle.Text;
+                //        kitap.Yayinevi = txtYayinEviGuncelle.Text;
+                //        kitap.ISBN = txtISBNGuncelle.Text;
+                //        kitap.BasimYili = Convert.ToInt32(txtBasimYiliGuncelle.Value);
+                //        kitap.BaskiSayisi = Convert.ToInt32(txtBaskiSayisiGuncelle.Value);
+                //        kitap.Adet = Convert.ToInt32(txtAdetGuncelle.Value);
+                //    }
+                //}
+                //dtKitap.Rows.Clear();
+                //dgvKitaplar.DataSource = dtKitap;
+
+                //foreach (var kitap in Kitap.kitaplar)
+                //{
+                //    kitap.tabloyaEkle(dtKitap);
+                //}
+
+                //dgvKitaplar.DataSource = dtKitap;
 
 
                 txtBaslikGuncelle.Text = "";
@@ -154,28 +179,7 @@ namespace GorselProgramlamaVizeSinav
             }
             else
             {
-                MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void dgvKitaplar_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvKitaplar.CurrentRow != null)
-            {
-                string Id = dgvKitaplar.CurrentRow.Cells[3].Value + "";
-                foreach (var kitap in Kitap.kitaplar)
-                {
-                    if (kitap.ISBN == Id)
-                    {
-                        txtBaslikGuncelle.Text = kitap.Baslik;
-                        txtYazarGuncelle.Text = kitap.Yazar;
-                        txtYayinEviGuncelle.Text = kitap.Yayinevi;
-                        txtISBNGuncelle.Text = kitap.ISBN;
-                        txtBasimYiliGuncelle.Value = kitap.BasimYili;
-                        txtBaskiSayisiGuncelle.Value = kitap.BaskiSayisi;
-                        txtAdetGuncelle.Value = kitap.Adet;
-                    }
-                }
+                MessageBox.Show("Lutfen kitap seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -195,6 +199,17 @@ namespace GorselProgramlamaVizeSinav
                                     MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void dgvKitaplar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtBaslikGuncelle.Text = dgvKitaplar.CurrentRow.Cells[0].Value.ToString();
+            txtYazarGuncelle.Text = dgvKitaplar.CurrentRow.Cells[1].Value.ToString();
+            txtYayinEviGuncelle.Text = dgvKitaplar.CurrentRow.Cells[2].Value.ToString();
+            txtISBNGuncelle.Text = dgvKitaplar.CurrentRow.Cells[3].Value.ToString();
+            txtBaskiSayisiGuncelle.Value = Convert.ToInt32(dgvKitaplar.CurrentRow.Cells[4].Value.ToString());
+            txtBasimYiliGuncelle.Value = Convert.ToInt32(dgvKitaplar.CurrentRow.Cells[5].Value.ToString());
+            txtAdetGuncelle.Value = Convert.ToInt32(dgvKitaplar.CurrentRow.Cells[6].Value.ToString());
         }
     }
 }
