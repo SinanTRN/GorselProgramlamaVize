@@ -52,7 +52,7 @@ namespace GorselProgramlamaVizeSinav
 
                 int eklenen_sayisi = komut.ExecuteNonQuery();
                 if (eklenen_sayisi > 0)
-                   f_emanet.form1.tabloGuncelle();
+                    f_emanet.form1.tabloGuncelle();
             }
             catch (Exception ex) { }
             //    if (f_emanet.txtEmanetBaslik.Text != "" && f_emanet.txtEmanetYazar.Text != "")
@@ -87,6 +87,24 @@ namespace GorselProgramlamaVizeSinav
         {
             dtpTeslimTarihiSure.Value = DateTime.Now.AddDays(Convert.ToInt32(txtSureUzatma.Text));
 
+        }
+
+        private void SureUzat_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (baglanti != null && baglanti.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    baglanti.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("SQLite Baglantisi sonlandirilirken hata ile karsilasildi",
+                                    "Baglanti sonlandirma hatasi",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -88,6 +88,7 @@
             Controls.Add(label3);
             Name = "Emanet_Islemleri";
             Text = "Emanet_Islemleri";
+            FormClosing += Emanet_Islemleri_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

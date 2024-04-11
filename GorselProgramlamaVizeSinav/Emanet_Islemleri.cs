@@ -43,13 +43,17 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnSureUzat_Click(object sender, EventArgs e)
         {
-            SureUzat nesne = new SureUzat(this);
-            nesne.ShowDialog();
+            if (txtEmanetId.Text != "")
+            {
+                SureUzat nesne = new SureUzat(this);
+                nesne.ShowDialog();
+            }
+            else MessageBox.Show("Lutfen ilgili alanları doldurun", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnIade_Click(object sender, EventArgs e)
         {
-            if (txtEmanetId.Text !="")
+            if (txtEmanetId.Text != "")
             {
                 try
                 {
@@ -87,6 +91,24 @@ namespace GorselProgramlamaVizeSinav
             else
             {
                 MessageBox.Show("Lutfen ilgili alanları doldurun", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void Emanet_Islemleri_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (baglanti != null && baglanti.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    baglanti.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("SQLite Baglantisi sonlandirilirken hata ile karsilasildi",
+                                    "Baglanti sonlandirma hatasi",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -42,10 +42,10 @@
             emanetİşlemleriTsm = new ToolStripMenuItem();
             ÖdünçAlTsm = new ToolStripMenuItem();
             dosyadanOkuToolStripMenuItem = new ToolStripMenuItem();
+            dosyayaKaydetToolStripMenuItem1 = new ToolStripMenuItem();
             dgvEmanetler = new DataGridView();
             btnAraMain = new Button();
             txtAraMain = new TextBox();
-            dosyayaKaydetToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmanetler).BeginInit();
             SuspendLayout();
@@ -150,6 +150,13 @@
             dosyadanOkuToolStripMenuItem.Text = "Dosyadan Oku";
             dosyadanOkuToolStripMenuItem.Click += dosyadanOkuToolStripMenuItem_Click;
             // 
+            // dosyayaKaydetToolStripMenuItem1
+            // 
+            dosyayaKaydetToolStripMenuItem1.Name = "dosyayaKaydetToolStripMenuItem1";
+            dosyayaKaydetToolStripMenuItem1.Size = new Size(191, 22);
+            dosyayaKaydetToolStripMenuItem1.Text = "Dosyaya Kaydet";
+            dosyayaKaydetToolStripMenuItem1.Click += dosyayaKaydetToolStripMenuItem_Click_1;
+            // 
             // dgvEmanetler
             // 
             dgvEmanetler.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -179,13 +186,6 @@
             txtAraMain.Size = new Size(263, 23);
             txtAraMain.TabIndex = 3;
             // 
-            // dosyayaKaydetToolStripMenuItem1
-            // 
-            dosyayaKaydetToolStripMenuItem1.Name = "dosyayaKaydetToolStripMenuItem1";
-            dosyayaKaydetToolStripMenuItem1.Size = new Size(191, 22);
-            dosyayaKaydetToolStripMenuItem1.Text = "Dosyaya Kaydet";
-            dosyayaKaydetToolStripMenuItem1.Click += dosyayaKaydetToolStripMenuItem_Click_1;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -198,6 +198,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Main";
+            FormClosing += Form1_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmanetler).EndInit();

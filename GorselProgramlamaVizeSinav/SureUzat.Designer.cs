@@ -107,6 +107,7 @@
             Controls.Add(label1);
             Name = "SureUzat";
             Text = "SureUzat";
+            FormClosing += SureUzat_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

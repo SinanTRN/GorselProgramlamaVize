@@ -207,5 +207,23 @@ namespace GorselProgramlamaVizeSinav
             OduncAl nesne = new OduncAl(this);
             nesne.Show();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (baglanti != null && baglanti.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    baglanti.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("SQLite Baglantisi sonlandirilirken hata ile karsilasildi",
+                                    "Baglanti sonlandirma hatasi",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
