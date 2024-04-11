@@ -20,11 +20,11 @@ namespace GorselProgramlamaVizeSinav
         Form1 form1;
 
         SQLiteConnection baglanti;
-        public OduncAl(string a,string b,Form1 form)
+        public OduncAl(string a, string b, Form1 form)
         {
             txtEmanetBaslik = a;
             txtEmanetYazar = b;
-            form1= form;
+            form1 = form;
             InitializeComponent();
             string baglanti_metni = "Data Source=kutuphane.db;Version=3;";
 
@@ -89,5 +89,22 @@ namespace GorselProgramlamaVizeSinav
             dtpTeslimTarihiOdunc.Value = DateTime.Now.AddDays(Convert.ToInt32(txtSureOdunc.Text));
         }
 
-     }
+        private void OduncAl_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (baglanti != null && baglanti.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    baglanti.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("SQLite Baglantisi sonlandirilirken hata ile karsilasildi",
+                                    "Baglanti sonlandirma hatasi",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+        }
+    }
 }

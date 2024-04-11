@@ -61,10 +61,6 @@ namespace GorselProgramlamaVizeSinav
             dgvUyeler.DataSource = dtUyeler;
         }
 
-        private void dgvUyeler_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
@@ -98,83 +94,94 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            if (txtIsim.Text != "" && txtSoyisim.Text != "" && txtTelefon.Text != "" && txtMail.Text != "")
+            try
             {
-                int Id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
+                int id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
 
-                foreach (var uye in Uye.uyeler)
-                {
-                    if (uye.ID == Id)
-                    {
-                        uye.Isim = txtIsim.Text;
-                        uye.Soyisim = txtSoyisim.Text;
-                        uye.Telefon = txtTelefon.Text;
-                        uye.Eposta = txtMail.Text;
-                    }
-                }
-                dtUyeler.Rows.Clear();
-                dgvUyeler.DataSource = dtUyeler;
+                SQLiteCommand komut = new SQLiteCommand();
+                komut.Connection = baglanti;
+                komut.CommandText = $"UPDATE uyeler SET telefon=\"{txtTelefon.Text}\",isim=\"{txtIsim.Text}\",soyisim=\"{txtSoyisim.Text}\",email=\"{txtMail.Text}\" WHERE ID={id}";
 
-                foreach (var uye in Uye.uyeler)
-                {
-                    uye.tabloyaEkle(dtUyeler);
-                }
-
-                dgvUyeler.DataSource = dtUyeler;
-
+                int eklenen_sayisi = komut.ExecuteNonQuery();
+                if (eklenen_sayisi > 0)
+                    tabloGuncelle();
             }
-            else
-            {
-                MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+            catch (Exception ex) { }
 
-        private void dgvUyeler_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvUyeler.CurrentRow != null)
-            {
-                int Id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
-                foreach (var uye in Uye.uyeler)
-                {
-                    if (uye.ID == Id)
-                    {
-                        txtIsim.Text = uye.Isim;
-                        txtSoyisim.Text = uye.Soyisim;
-                        txtTelefon.Text = uye.Telefon;
-                        txtMail.Text = uye.Eposta;
-                    }
-                }
-            }
+            //if (txtIsim.Text != "" && txtSoyisim.Text != "" && txtTelefon.Text != "" && txtMail.Text != "")
+            //{
+            //    int Id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
+
+            //    foreach (var uye in Uye.uyeler)
+            //    {
+            //        if (uye.ID == Id)
+            //        {
+            //            uye.Isim = txtIsim.Text;
+            //            uye.Soyisim = txtSoyisim.Text;
+            //            uye.Telefon = txtTelefon.Text;
+            //            uye.Eposta = txtMail.Text;
+            //        }
+            //    }
+            //    dtUyeler.Rows.Clear();
+            //    dgvUyeler.DataSource = dtUyeler;
+
+            //    foreach (var uye in Uye.uyeler)
+            //    {
+            //        uye.tabloyaEkle(dtUyeler);
+            //    }
+
+            //    dgvUyeler.DataSource = dtUyeler;
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            if (txtIsim.Text != "" && txtSoyisim.Text != "" && txtTelefon.Text != "" && txtMail.Text != "")
-            {
-                int Id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
-
-                for (int i = Uye.uyeler.Count - 1; i >= 0; i--)
+                try
                 {
-                    if (Uye.uyeler[i].ID == Id)
-                    {
-                        Uye.uyeler.Remove(Uye.uyeler[i]);
-                    }
+                    int id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
+
+                    SQLiteCommand komut = new SQLiteCommand();
+                    komut.Connection = baglanti;
+                    komut.CommandText = $"DELETE FROM uyeler WHERE ID = {id}";
+
+                    int eklenen_sayisi = komut.ExecuteNonQuery();
+                    if (eklenen_sayisi > 0)
+                        tabloGuncelle();
                 }
-                dtUyeler.Rows.Clear();
-                dgvUyeler.DataSource = dtUyeler;
+                catch (Exception ex) { }
 
-                foreach (var uye in Uye.uyeler)
-                {
-                    uye.tabloyaEkle(dtUyeler);
-                }
 
-                dgvUyeler.DataSource = dtUyeler;
+            //if (txtIsim.Text != "" && txtSoyisim.Text != "" && txtTelefon.Text != "" && txtMail.Text != "")
+            //{
+            //    int Id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
 
-            }
-            else
-            {
-                MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //    for (int i = Uye.uyeler.Count - 1; i >= 0; i--)
+            //    {
+            //        if (Uye.uyeler[i].ID == Id)
+            //        {
+            //            Uye.uyeler.Remove(Uye.uyeler[i]);
+            //        }
+            //    }
+            //    dtUyeler.Rows.Clear();
+            //    dgvUyeler.DataSource = dtUyeler;
+
+            //    foreach (var uye in Uye.uyeler)
+            //    {
+            //        uye.tabloyaEkle(dtUyeler);
+            //    }
+
+            //    dgvUyeler.DataSource = dtUyeler;
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void Uye_Ekleme_FormClosing(object sender, FormClosingEventArgs e)
@@ -193,6 +200,14 @@ namespace GorselProgramlamaVizeSinav
                                     MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void dgvUyeler_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtIsim.Text = dgvUyeler.CurrentRow.Cells[1].Value.ToString();
+            txtSoyisim.Text = dgvUyeler.CurrentRow.Cells[2].Value.ToString();
+            txtMail.Text = dgvUyeler.CurrentRow.Cells[3].Value.ToString();
+            txtTelefon.Text = dgvUyeler.CurrentRow.Cells[4].Value.ToString();
         }
     }
 }

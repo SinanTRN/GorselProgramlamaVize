@@ -191,6 +191,7 @@
             Controls.Add(groupBox1);
             Name = "OduncAl";
             Text = "OduncAl";
+            FormClosing += OduncAl_FormClosing;
             Load += OduncAl_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

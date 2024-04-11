@@ -88,8 +88,7 @@
             dgvUyeler.Name = "dgvUyeler";
             dgvUyeler.Size = new Size(529, 429);
             dgvUyeler.TabIndex = 3;
-            dgvUyeler.CellContentClick += dgvUyeler_CellContentClick;
-            dgvUyeler.SelectionChanged += dgvUyeler_SelectionChanged;
+            dgvUyeler.CellClick += dgvUyeler_CellClick;
             // 
             // groupBox1
             // 
