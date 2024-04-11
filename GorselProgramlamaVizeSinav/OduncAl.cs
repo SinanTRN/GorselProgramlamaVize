@@ -15,15 +15,11 @@ namespace GorselProgramlamaVizeSinav
     public partial class OduncAl : Form
     {
         public Emanet emanet;
-        string txtEmanetBaslik = "";
-        string txtEmanetYazar = "";
         Form1 form1;
 
         SQLiteConnection baglanti;
-        public OduncAl(string a, string b, Form1 form)
+        public OduncAl(Form1 form)
         {
-            txtEmanetBaslik = a;
-            txtEmanetYazar = b;
             form1 = form;
             InitializeComponent();
             string baglanti_metni = "Data Source=kutuphane.db;Version=3;";
@@ -55,8 +51,8 @@ namespace GorselProgramlamaVizeSinav
             SQLiteCommand komut = new SQLiteCommand();
             komut.Connection = baglanti;
             komut.CommandText = $"INSERT INTO emanetler (uye_Id,uye_Ismi,uye_Soyismi,kitap_Baslik,kitap_Yazar,alınan_Tarih,teslim_Tarihi) VALUES(\"{Convert.ToInt32(txtIdOdunc.Text)}\",\"{txtIsimOdunc.Text}\"," +
-                $"                                                                           \"{txtSoyisimOdunc.Text}\",\"{txtEmanetBaslik}\"," +
-                $"                                                                            \"{txtEmanetYazar}\",\"{DateTime.Now.ToString()}\"," +
+                $"                                                                           \"{txtSoyisimOdunc.Text}\",\"{txtBaslikEmanet.Text}\"," +
+                $"                                                                            \"{txtYazarEmanet.Text}\",\"{DateTime.Now.ToString()}\"," +
                 $"                                                                             \"{dtpTeslimTarihiOdunc.Value.ToString()}\")";
 
 

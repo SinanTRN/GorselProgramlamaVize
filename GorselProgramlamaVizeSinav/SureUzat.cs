@@ -25,32 +25,32 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnOkSure_Click(object sender, EventArgs e)
         {
-            if (f_emanet.txtEmanetBaslik.Text != "" && f_emanet.txtEmanetYazar.Text != "")
-            {
+        //    if (f_emanet.txtEmanetBaslik.Text != "" && f_emanet.txtEmanetYazar.Text != "")
+        //    {
 
-                foreach (var emanet in Emanet.emanetler)
-                {
-                    if (emanet.KitapBaslik == f_emanet.txtEmanetBaslik.Text && emanet.KitapYazar == f_emanet.txtEmanetYazar.Text)
-                    {
-                        emanet.TeslimTarihi = dtpTeslimTarihiSure.Value;
-                    }
-                }
-                f_emanet.form1.dtEmanet.Rows.Clear();
+        //        foreach (var emanet in Emanet.emanetler)
+        //        {
+        //            if (emanet.KitapBaslik == f_emanet.txtEmanetBaslik.Text && emanet.KitapYazar == f_emanet.txtEmanetYazar.Text)
+        //            {
+        //                emanet.TeslimTarihi = dtpTeslimTarihiSure.Value;
+        //            }
+        //        }
+        //        f_emanet.form1.dtEmanet.Rows.Clear();
                 
-                f_emanet.form1.dgvEmanetler.DataSource = f_emanet.form1.dtEmanet;
+        //        f_emanet.form1.dgvEmanetler.DataSource = f_emanet.form1.dtEmanet;
 
-                foreach (var emanet in Emanet.emanetler)
-                {
-                    emanet.tabloyaEkle(f_emanet.form1.dtEmanet);
-                }
+        //        foreach (var emanet in Emanet.emanetler)
+        //        {
+        //            emanet.tabloyaEkle(f_emanet.form1.dtEmanet);
+        //        }
 
-                f_emanet.form1.dgvEmanetler.DataSource = f_emanet.form1.dtEmanet;
+        //        f_emanet.form1.dgvEmanetler.DataSource = f_emanet.form1.dtEmanet;
 
-            }
-            else
-            {
-                MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Lutfen uye seçin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
         }
 
         private void txtSureUzatma_TextChanged(object sender, EventArgs e)

@@ -201,5 +201,11 @@ namespace GorselProgramlamaVizeSinav
 
             }
         }
+
+        private void ÖdünçAlTsm_Click(object sender, EventArgs e)
+        {
+            OduncAl nesne = new OduncAl(this);
+            nesne.Show();
+        }
     }
 }

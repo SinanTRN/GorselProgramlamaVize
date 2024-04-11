@@ -40,11 +40,12 @@
             kitaplarıDosyadanOkuToolStripMenuItem = new ToolStripMenuItem();
             emanetİşlemleriToolStripMenuItem = new ToolStripMenuItem();
             emanetİşlemleriTsm = new ToolStripMenuItem();
-            dosyayaKaydetToolStripMenuItem = new ToolStripMenuItem();
+            ÖdünçAlTsm = new ToolStripMenuItem();
             dosyadanOkuToolStripMenuItem = new ToolStripMenuItem();
             dgvEmanetler = new DataGridView();
             btnAraMain = new Button();
             txtAraMain = new TextBox();
+            dosyayaKaydetToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmanetler).BeginInit();
             SuspendLayout();
@@ -123,29 +124,29 @@
             // 
             // emanetİşlemleriToolStripMenuItem
             // 
-            emanetİşlemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { emanetİşlemleriTsm, dosyayaKaydetToolStripMenuItem, dosyadanOkuToolStripMenuItem });
+            emanetİşlemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { emanetİşlemleriTsm, ÖdünçAlTsm, dosyadanOkuToolStripMenuItem, dosyayaKaydetToolStripMenuItem1 });
             emanetİşlemleriToolStripMenuItem.Name = "emanetİşlemleriToolStripMenuItem";
-            emanetİşlemleriToolStripMenuItem.Size = new Size(59, 20);
-            emanetİşlemleriToolStripMenuItem.Text = "Emanet";
+            emanetİşlemleriToolStripMenuItem.Size = new Size(106, 20);
+            emanetİşlemleriToolStripMenuItem.Text = "Emanet İşlemleri";
             // 
             // emanetİşlemleriTsm
             // 
             emanetİşlemleriTsm.Name = "emanetİşlemleriTsm";
-            emanetİşlemleriTsm.Size = new Size(180, 22);
-            emanetİşlemleriTsm.Text = "Emanet İşlemleri";
+            emanetİşlemleriTsm.Size = new Size(191, 22);
+            emanetİşlemleriTsm.Text = "Emanet iade/süre uzat";
             emanetİşlemleriTsm.Click += emanetİşlemleriTsm_Click;
             // 
-            // dosyayaKaydetToolStripMenuItem
+            // ÖdünçAlTsm
             // 
-            dosyayaKaydetToolStripMenuItem.Name = "dosyayaKaydetToolStripMenuItem";
-            dosyayaKaydetToolStripMenuItem.Size = new Size(180, 22);
-            dosyayaKaydetToolStripMenuItem.Text = "Dosyaya Kaydet";
-            dosyayaKaydetToolStripMenuItem.Click += dosyayaKaydetToolStripMenuItem_Click_1;
+            ÖdünçAlTsm.Name = "ÖdünçAlTsm";
+            ÖdünçAlTsm.Size = new Size(191, 22);
+            ÖdünçAlTsm.Text = "Ödünç Al";
+            ÖdünçAlTsm.Click += ÖdünçAlTsm_Click;
             // 
             // dosyadanOkuToolStripMenuItem
             // 
             dosyadanOkuToolStripMenuItem.Name = "dosyadanOkuToolStripMenuItem";
-            dosyadanOkuToolStripMenuItem.Size = new Size(180, 22);
+            dosyadanOkuToolStripMenuItem.Size = new Size(191, 22);
             dosyadanOkuToolStripMenuItem.Text = "Dosyadan Oku";
             dosyadanOkuToolStripMenuItem.Click += dosyadanOkuToolStripMenuItem_Click;
             // 
@@ -178,6 +179,13 @@
             txtAraMain.Size = new Size(263, 23);
             txtAraMain.TabIndex = 3;
             // 
+            // dosyayaKaydetToolStripMenuItem1
+            // 
+            dosyayaKaydetToolStripMenuItem1.Name = "dosyayaKaydetToolStripMenuItem1";
+            dosyayaKaydetToolStripMenuItem1.Size = new Size(191, 22);
+            dosyayaKaydetToolStripMenuItem1.Text = "Dosyaya Kaydet";
+            dosyayaKaydetToolStripMenuItem1.Click += dosyayaKaydetToolStripMenuItem_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -208,7 +216,7 @@
         private Button btnAraMain;
         private TextBox txtAraMain;
         private ToolStripMenuItem emanetİşlemleriTsm;
-        private ToolStripMenuItem dosyayaKaydetToolStripMenuItem;
+        private ToolStripMenuItem ÖdünçAlTsm;
         private ToolStripMenuItem dosyadanOkuToolStripMenuItem;
         private ToolStripMenuItem üyeOperasyonlarıToolStripMenuItem;
         private ToolStripMenuItem üyeleriDosyayaKaydetToolStripMenuItem;
@@ -216,5 +224,6 @@
         private ToolStripMenuItem kitaplarıDosyayaKaydetToolStripMenuItem;
         private ToolStripMenuItem kitaplarıDosyadanOkuToolStripMenuItem;
         public DataGridView dgvEmanetler;
+        private ToolStripMenuItem dosyayaKaydetToolStripMenuItem1;
     }
 }
