@@ -94,8 +94,11 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            try
+            if (txtIsim.Text != "" && txtSoyisim.Text != "" && txtTelefon.Text != "")
             {
+
+                try
+                {
                 int id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
 
                 SQLiteCommand komut = new SQLiteCommand();
@@ -105,8 +108,14 @@ namespace GorselProgramlamaVizeSinav
                 int eklenen_sayisi = komut.ExecuteNonQuery();
                 if (eklenen_sayisi > 0)
                     tabloGuncelle();
+                }
+                catch (Exception ex) { }
             }
-            catch (Exception ex) { }
+
+            txtIsim.Text = "";
+            txtSoyisim.Text = "";
+            txtMail.Text = "";
+            txtTelefon.Text = "";
 
             //if (txtIsim.Text != "" && txtSoyisim.Text != "" && txtTelefon.Text != "" && txtMail.Text != "")
             //{
@@ -141,6 +150,8 @@ namespace GorselProgramlamaVizeSinav
 
         private void btnSil_Click(object sender, EventArgs e)
         {
+            if (txtIsim.Text != "" && txtSoyisim.Text != "" && txtTelefon.Text != "")
+            {
                 try
                 {
                     int id = Convert.ToInt32(dgvUyeler.CurrentRow.Cells[0].Value);
@@ -154,7 +165,11 @@ namespace GorselProgramlamaVizeSinav
                         tabloGuncelle();
                 }
                 catch (Exception ex) { }
-
+            }
+            txtIsim.Text = "";
+            txtSoyisim.Text = "";
+            txtMail.Text = "";
+            txtTelefon.Text = "";
 
             //if (txtIsim.Text != "" && txtSoyisim.Text != "" && txtTelefon.Text != "" && txtMail.Text != "")
             //{
