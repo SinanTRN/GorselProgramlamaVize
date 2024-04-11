@@ -51,7 +51,19 @@ namespace GorselProgramlamaVizeSinav
         {
             if (txtEmanetId.Text !="")
             {
+                try
+                {
+                    int id = Convert.ToInt32(txtEmanetId.Text);
 
+                    SQLiteCommand komut = new SQLiteCommand();
+                    komut.Connection = baglanti;
+                    komut.CommandText = $"DELETE FROM emanetler WHERE emanet_Id = {id}";
+
+                    int eklenen_sayisi = komut.ExecuteNonQuery();
+                    if (eklenen_sayisi > 0)
+                        form1.tabloGuncelle();
+                }
+                catch (Exception ex) { }
 
                 //for (int i = Emanet.emanetler.Count - 1; i >= 0; i--)
                 //{

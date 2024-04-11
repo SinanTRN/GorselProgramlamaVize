@@ -96,6 +96,6 @@
         private Button btnSureUzat;
         private Button btnIade;
         private Label label3;
-        private TextBox txtEmanetId;
+        public TextBox txtEmanetId;
     }
 }
